@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "MyGraph",
+"language": "GDScript",
+"path": "res://graph/MyGraph.gd"
+}, {
+"base": "Node",
+"class": "MyGraphNode",
+"language": "GDScript",
+"path": "res://graph/MyGraphNode.gd"
+} ]
 _global_script_class_icons={
-
+"MyGraph": "",
+"MyGraphNode": ""
 }
 
 [application]

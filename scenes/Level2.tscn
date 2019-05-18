@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -8,10 +8,12 @@
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 40.0068, 299.791, 0, 0, 0, 0, 250, 300, 0, 0, 0, 0, 250, 540 )
+"points": PoolVector2Array( 0, 0, 0, 0, 40, 300, 0, 0, 0, 0, 240, 300, 0, 0, 0, 0, 240, 460 )
 }
+
+[sub_resource type="NavigationPolygon" id=2]
 
 [node name="Level2Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,7 +29,7 @@ position = Vector2( 430, 590 )
 [node name="Platform" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Platform"]
-curve = SubResource( 1 )
+curve = SubResource( 3 )
 script = ExtResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Platform/Path2D"]
@@ -47,6 +49,11 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="ClickableArea" parent="Dog" index="0"]
 editor/display_folded = true
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 2 )
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
 
 [editable path="Dog"]
