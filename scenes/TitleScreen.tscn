@@ -18,20 +18,20 @@ texture = ExtResource( 1 )
 stretch_mode = 4
 
 [node name="PlayButton" parent="." instance=ExtResource( 2 )]
-margin_left = 284.15
-margin_top = 263.8
-margin_right = 404.15
-margin_bottom = 323.8
+margin_left = 292.571
+margin_top = 262.747
+margin_right = 412.571
+margin_bottom = 322.747
 rect_min_size = Vector2( 120, 60 )
 
 [node name="Options" parent="." instance=ExtResource( 3 )]
-margin_left = 28.6
+margin_left = 40.179
 margin_top = 377.2
-margin_right = 238.6
+margin_right = 250.179
 margin_bottom = 437.2
 
 [node name="CreditButton" parent="." instance=ExtResource( 4 )]
-margin_left = 455.15
+margin_left = 440.413
 margin_top = 379.45
-margin_right = 665.15
+margin_right = 650.413
 margin_bottom = 439.45
