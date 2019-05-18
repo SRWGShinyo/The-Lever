@@ -30,7 +30,7 @@ func _physics_process(delta):
 	velocity.y += gravity
 	
 	old_velocity = velocity
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(get_floor_velocity() + velocity)
 
 func _process(delta):
 	if Input.is_action_pressed("PLAYER_JUMP") and is_grounded():
