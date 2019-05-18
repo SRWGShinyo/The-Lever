@@ -36,8 +36,12 @@ globals="*res://globals.gd"
 
 [display]
 
-window/size/width=640
-window/size/height=640
+window/size/width=720
+window/size/height=720
+
+[global]
+
+size=false
 
 [input]
 
