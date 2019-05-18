@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/SE/FadeSoundEffect.wav" type="AudioStream" id=1]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -14,6 +16,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0.156863, 0.156863, 0.156863, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("FadePanelRoot/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -39,6 +55,10 @@ anims/FadeAway = SubResource( 2 )
 
 [node name="FadePanel" type="Panel" parent="CanvasLayer"]
 modulate = Color( 0.156863, 0.156863, 0.156863, 1 )
-margin_right = 640.0
-margin_bottom = 640.0
+margin_right = 720.0
+margin_bottom = 720.0
 mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0
