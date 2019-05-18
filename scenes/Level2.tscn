@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ProtoPlatform.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 40.0068, 299.791, 0, 0, 0, 0, 250, 300, 0, 0, 0, 0, 250, 540 )
+}
 
 [node name="Level2Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,9 +24,29 @@ position = Vector2( 70, 600 )
 [node name="Lever" parent="." instance=ExtResource( 4 )]
 position = Vector2( 430, 590 )
 
-[node name="Dog" parent="." instance=ExtResource( 5 )]
+[node name="Platform" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Platform"]
+curve = SubResource( 1 )
+script = ExtResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Platform/Path2D"]
+position = Vector2( 40.0068, 299.791 )
+rotation = 0.00101338
+rotate = false
+loop = false
+
+[node name="Sprite" type="Sprite" parent="Platform/Path2D/PathFollow2D"]
+scale = Vector2( 1, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="Dog" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
 position = Vector2( 317.578, 604.553 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="ClickableArea" parent="Dog" index="0"]
+editor/display_folded = true
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
 
 [editable path="Dog"]
