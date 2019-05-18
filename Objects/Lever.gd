@@ -2,17 +2,19 @@ extends Node2D
 
 signal clicked
 
-var fadePanelModel := preload("res://UI/FadePanel.tscn")
-var fadePanel: AnimationPlayer = null
+var scene_to_load: String = ""
 
 func _on_ClickableArea_clicked():
-	if fadePanel == null:
-		fadePanel = fadePanelModel.instance()
-		get_tree().get_root().add_child(fadePanel)
-	fadePanel.play("Fade")
+	var fadePanel: AnimationPlayer = get_node("/root/globals").getFadePanel()
 	fadePanel.connect("animation_finished", self, "_animation_finished")
+	fadePanel.play("Fade")
 	emit_signal("clicked")
 
 func _animation_finished(anim_name: String):
+	var fadePanel: AnimationPlayer = get_node("/root/globals").getFadePanel()
 	if anim_name == "Fade":
+		get_tree().change_scene(scene_to_load)
 		fadePanel.play("FadeAway")
+
+func set_scene_to_load(scene_name: String):
+	scene_to_load = scene_name
