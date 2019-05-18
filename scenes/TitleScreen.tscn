@@ -1,13 +1,37 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://scenes/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Options.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/CreditButton.tscn" type="PackedScene" id=4]
 
 [node name="TitleScreenRoot" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Play" type="ToolButton" parent="."]
-margin_left = 360.315
-margin_top = 229.732
-margin_right = 398.315
-margin_bottom = 251.732
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Play"
+[node name="GameLogo" type="TextureRect" parent="."]
+margin_left = 19.1
+margin_top = 57.1
+margin_right = 659.1
+margin_bottom = 121.1
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="PlayButton" parent="." instance=ExtResource( 2 )]
+margin_left = 284.15
+margin_top = 263.8
+margin_right = 404.15
+margin_bottom = 323.8
+rect_min_size = Vector2( 120, 60 )
+
+[node name="Options" parent="." instance=ExtResource( 3 )]
+margin_left = 28.6
+margin_top = 377.2
+margin_right = 238.6
+margin_bottom = 437.2
+
+[node name="CreditButton" parent="." instance=ExtResource( 4 )]
+margin_left = 455.15
+margin_top = 379.45
+margin_right = 665.15
+margin_bottom = 439.45
