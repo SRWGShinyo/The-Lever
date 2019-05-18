@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="TitleScreenRoot" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Play" type="ToolButton" parent="."]
+margin_left = 360.315
+margin_top = 229.732
+margin_right = 398.315
+margin_bottom = 251.732
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
