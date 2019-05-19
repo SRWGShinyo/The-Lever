@@ -23,17 +23,11 @@ _global_script_classes=[ {
 "class": "Platform",
 "language": "GDScript",
 "path": "res://scenes/ProtoPlatform.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Objects/Player.gd"
 } ]
 _global_script_class_icons={
 "MyGraph": "",
 "MyGraphNode": "",
-"Platform": "",
-"Player": ""
+"Platform": ""
 }
 
 [application]
@@ -51,6 +45,8 @@ MainTitleMusic="*res://MainTitleMusic.tscn"
 
 window/size/width=720
 window/size/height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [global]
 
@@ -80,7 +76,6 @@ PLAYER_JUMP={
 2d_physics/layer_1="All"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Static"
-2d_physics/layer_4="Platform"
 
 [rendering]
 
