@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://resources/sprites/Fountains/fontaineau_1.png" type="Texture" id=1]
+[ext_resource path="res://resources/sprites/Fountains/fontaineau_2.png" type="Texture" id=2]
+[ext_resource path="res://resources/sprites/Fountains/fontaineau_3.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/Fountains/fontaineau_4.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/Fountains/fontaineau_5.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://resources/SE/ReplenishSeau.wav" type="AudioStream" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _on_ClickableArea_clicked():
+	if get_node(\"/root/globals\").get_player().has_item(\"seau\"):
+		MainTitleMusic.changeFxVolume($Fill)
+		if get_node(\"/root/globals\").get_player().has_item(\"seau_lave\"):
+			get_node(\"/root/globals\").get_player().remove_item(\"seau_lave\")
+		if get_node(\"/root/globals\").get_player().has_item(\"seau_eau\"):
+			pass
+		get_node(\"/root/globals\").get_player().give_item(\"seau_eau\")
+"
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 88.6554 )
+
+[node name="WaterFountain" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+playing = true
+
+[node name="ClickableRoot" parent="." instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" parent="ClickableRoot/ClickableArea" index="1"]
+position = Vector2( 0, 0.773785 )
+shape = SubResource( 3 )
+
+[node name="Fill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -14.0
+[connection signal="clicked" from="ClickableRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
+
+[editable path="ClickableRoot"]
