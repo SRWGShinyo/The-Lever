@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://MainTitleMusic.gd" type="Script" id=1]
+[ext_resource path="res://resources/musics/TitleScreen.wav" type="AudioStream" id=2]
+[ext_resource path="res://resources/musics/LevelMusicHeatleyBros.wav" type="AudioStream" id=3]
+[ext_resource path="res://resources/musics/World2Music.wav" type="AudioStream" id=4]
+
+[node name="MainTitleMusic" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="Audit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -12.0
+autoplay = true
+
+[node name="Level1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -16.0
+
+[node name="Level2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -24.0
