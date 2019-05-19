@@ -13,6 +13,7 @@ func _ready():
 
 func _on_PlayButton_pressed():
 	sceneFade = 1
+
 	
 
 func _on_Options_pressed():
@@ -26,6 +27,7 @@ func _on_LeverRoot_clicked():
 		pass
 	
 	if (sceneFade == 1):
+		MainTitleMusic.audioMain.stop()
 		$LeverRoot.set_scene_to_load("res://scenes/Level1.tscn")
 	
 	if (sceneFade == 2):
