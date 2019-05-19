@@ -30,6 +30,9 @@ visible = false
 [node name="KinematicBody2D" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
 editor/display_folded = false
 
+[node name="AnimatedSprite" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 2
+
 [node name="Hole" parent="Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = false
 
