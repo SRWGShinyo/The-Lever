@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Level3.tscn" type="PackedScene" id=1]
+
+[node name="Level4Root" type="Node2D"]
+
+[node name="Level3Root" parent="." instance=ExtResource( 1 )]
+
+[editable path="Level3Root"]
+
+[editable path="Level3Root/Level2Root"]
+
+[editable path="Level3Root/Level2Root/Level1Root"]

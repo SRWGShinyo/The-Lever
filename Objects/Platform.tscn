@@ -37,12 +37,13 @@ loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
 rotation = -0.00101338
 collision_layer = 9
-collision_mask = 2
+collision_mask = 3
 motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
