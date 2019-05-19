@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -34,11 +34,12 @@
 [ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_5.png" type="Texture" id=32]
 [ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_6.png" type="Texture" id=33]
 [ext_resource path="res://resources/sprites/os.png" type="Texture" id=34]
+[ext_resource path="res://Objects/Roof.tscn" type="PackedScene" id=35]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.768, 19.9648 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
@@ -91,12 +92,12 @@ texture = null
 
 [node name="CollisionShape2D" parent="Dog/ClickableArea" index="1"]
 position = Vector2( 0.257019, 3.85547 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Dog/ClickableArea" index="2"]
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Idle"
-frame = 3
+frame = 5
 playing = true
 
 [node name="Bone" parent="." instance=ExtResource( 6 )]
@@ -111,6 +112,8 @@ texture = ExtResource( 34 )
 [node name="CollisionShape2D" parent="Bone/ClickableArea" index="1"]
 position = Vector2( 0, 8.69623 )
 shape = SubResource( 3 )
+
+[node name="Roof" parent="." instance=ExtResource( 35 )]
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
 [connection signal="clicked" from="Dog/ClickableArea" to="Dog" method="_on_ClickableArea_clicked"]
 [connection signal="animation_finished" from="Dog/ClickableArea/AnimatedSprite" to="Dog" method="_on_AnimatedSprite_animation_finished"]
