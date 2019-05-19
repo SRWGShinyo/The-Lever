@@ -30,7 +30,11 @@ extents = Vector2( 16.1007, 7.41296 )
 [node name="Level1Root" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="BG" parent="Level1Root" index="4"]
+editor/display_folded = true
+
 [node name="Rails" type="Node2D" parent="Level1Root"]
+editor/display_folded = true
 position = Vector2( 20.5827, 13.2318 )
 
 [node name="Rail" parent="Level1Root/Rails" instance=ExtResource( 3 )]
@@ -49,7 +53,7 @@ region_rect = Rect2( -20.25, 0, 8.14, 69.72 )
 
 [node name="Command" parent="Level1Root" instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 279.41, 617.874 )
+position = Vector2( 279.41, 619.591 )
 
 [node name="Floor2" parent="Level1Root" instance=ExtResource( 5 )]
 
@@ -60,8 +64,8 @@ position = Vector2( 56.9348, 299.783 )
 [node name="Path2D" parent="Level1Root/Platform" index="0"]
 curve = SubResource( 1 )
 
-[node name="AnimatedSprite" parent="Level1Root/Platform/Path2D/PathFollow2D" index="0"]
-frame = 3
+[node name="AnimatedSprite" parent="Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 0
 
 [node name="Dog" parent="Level1Root" instance=ExtResource( 7 )]
 editor/display_folded = true

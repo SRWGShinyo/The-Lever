@@ -46,11 +46,11 @@ rotation = -0.00101338
 [node name="ClickableRoot" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/WaterBucket" index="0"]
 editor/display_folded = true
 
-[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
-frame = 1
-
-[node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="2"]
+[node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
 editor/display_folded = true
+
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 2
 
 [node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
 editor/display_folded = true
@@ -60,8 +60,8 @@ curve = ExtResource( 4 )
 editor/display_folded = true
 position = Vector2( 3.0652, 0.21701 )
 
-[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
-frame = 2
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 1
 
 [node name="Hole" parent="Level2Root/Level1Root" index="11"]
 visible = false

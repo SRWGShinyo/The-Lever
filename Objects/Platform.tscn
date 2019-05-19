@@ -48,7 +48,7 @@ one_way_collision = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D/KinematicBody2D"]
 rotation = 0.00101338
 frames = SubResource( 3 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
