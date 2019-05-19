@@ -7,6 +7,8 @@ var displayBlue = false
 var displayGreen = false
 var displayRed = false
 
+var commandPickUp = false
+
 func displayProperPanel(lvl):
 	if lvl == "1":
 		displayBlue = true
