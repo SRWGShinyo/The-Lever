@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "MyGraphNode",
 "language": "GDScript",
 "path": "res://graph/MyGraphNode.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Objects/Player.gd"
 } ]
 _global_script_class_icons={
 "MyGraph": "",
-"MyGraphNode": "",
-"Player": ""
+"MyGraphNode": ""
 }
 
 [application]
@@ -45,6 +39,8 @@ MainTitleMusic="*res://MainTitleMusic.tscn"
 
 window/size/width=720
 window/size/height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [global]
 
