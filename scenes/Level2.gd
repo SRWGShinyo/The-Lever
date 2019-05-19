@@ -6,4 +6,4 @@ func _ready():
 
 func _on_Lever_clicked():
 	if $Hole.seeded:
-		$Lever.set_scene_to_load("res://scenes/Level4.tscn")
+		$Lever.set_scene_to_load("res://scenes/Level3.tscn")
