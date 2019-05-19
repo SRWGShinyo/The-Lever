@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level2.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Rail.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Dog.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Hole.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Hole.gd" type="Script" id=8]
-[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Objects/Seed.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Objects/Bone.gd" type="Script" id=11]
-[ext_resource path="res://resources/sprites/os.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Command.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Rail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Dog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Hole.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Hole.gd" type="Script" id=9]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Seed.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Bone.gd" type="Script" id=12]
+[ext_resource path="res://resources/sprites/os.png" type="Texture" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -29,16 +30,21 @@ extents = Vector2( 16.1007, 7.41296 )
 [node name="Level1Root" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="Command" parent="Level1Root" instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 279.41, 617.874 )
+
 [node name="Rails" type="Node2D" parent="Level1Root"]
+editor/display_folded = true
 position = Vector2( 20.5827, 13.2318 )
 
-[node name="Rail" parent="Level1Root/Rails" instance=ExtResource( 3 )]
+[node name="Rail" parent="Level1Root/Rails" instance=ExtResource( 4 )]
 position = Vector2( 239.268, 431.667 )
 
 [node name="Sprite" parent="Level1Root/Rails/Rail" index="0"]
 region_rect = Rect2( -20.25, 0, 8.14, 99.4 )
 
-[node name="Rail2" parent="Level1Root/Rails" instance=ExtResource( 3 )]
+[node name="Rail2" parent="Level1Root/Rails" instance=ExtResource( 4 )]
 position = Vector2( 123.363, 287.057 )
 rotation = 1.5708
 
@@ -46,45 +52,47 @@ rotation = 1.5708
 position = Vector2( -0.00012207, -13.5286 )
 region_rect = Rect2( -20.25, 0, 8.14, 71.08 )
 
-[node name="Floor2" parent="Level1Root" instance=ExtResource( 4 )]
+[node name="Floor2" parent="Level1Root" instance=ExtResource( 5 )]
 
-[node name="Platform" parent="Level1Root" instance=ExtResource( 5 )]
+[node name="Platform" parent="Level1Root" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( 56.9348, 299.783 )
 
 [node name="Path2D" parent="Level1Root/Platform" index="0"]
 curve = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Level1Root/Platform/Path2D/PathFollow2D" index="0"]
-frame = 2
+frame = 3
 
-[node name="Dog" parent="Level1Root" instance=ExtResource( 6 )]
+[node name="Dog" parent="Level1Root" instance=ExtResource( 7 )]
 editor/display_folded = true
 position = Vector2( 342.752, 627.618 )
 
-[node name="Hole" parent="Level1Root" instance=ExtResource( 7 )]
+[node name="Hole" parent="Level1Root" instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 197.212, 652.591 )
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
-[node name="ClickableRoot" parent="Level1Root/Hole" instance=ExtResource( 9 )]
+[node name="ClickableRoot" parent="Level1Root/Hole" instance=ExtResource( 10 )]
 
 [node name="CollisionShape2D" parent="Level1Root/Hole/ClickableRoot/ClickableArea" index="1"]
 position = Vector2( 0.237823, -4.99432 )
 shape = SubResource( 2 )
 
-[node name="Seed" parent="Level1Root" instance=ExtResource( 10 )]
+[node name="Seed" parent="Level1Root" instance=ExtResource( 11 )]
 position = Vector2( 615.553, 636.641 )
 
-[node name="Bone" parent="Level1Root" instance=ExtResource( 9 )]
+[node name="Bone" parent="Level1Root" instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 206.342, 216.707 )
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="ClickableArea" parent="Level1Root/Bone" index="0"]
 editor/display_folded = true
 position = Vector2( 330.529, 420.004 )
 
 [node name="Sprite" parent="Level1Root/Bone/ClickableArea" index="0"]
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" parent="Level1Root/Bone/ClickableArea" index="1"]
 position = Vector2( 0, 8.69623 )
@@ -94,6 +102,18 @@ shape = SubResource( 3 )
 [connection signal="clicked" from="Level1Root/Bone/ClickableArea" to="Level1Root/Bone" method="_on_ClickableArea_clicked"]
 
 [editable path="Level1Root"]
+
+[editable path="Level1Root/Command"]
+
+[editable path="Level1Root/Command/Tableau/LeftArrow"]
+
+[editable path="Level1Root/Command/Tableau/UpArrow"]
+
+[editable path="Level1Root/Command/Tableau/RightArrow"]
+
+[editable path="Level1Root/Command/Tableau/DownArrow"]
+
+[editable path="Level1Root/Command/Tableau/OK"]
 
 [editable path="Level1Root/Rails/Rail"]
 

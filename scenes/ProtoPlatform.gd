@@ -12,7 +12,7 @@ export var can_go_down := true
 export var can_go_up := true
 
 func moving() -> bool:
-	return goal != Vector2.INF
+	return speed != 0
 
 func _enter_tree():
 	graph = MyGraph.new()
@@ -20,23 +20,15 @@ func _enter_tree():
 	for i in curve.get_point_count():
 		graph.add_linked_node(curve.get_point_position(i))
 
-var goal := Vector2.INF
+var goal := Vector2()
 var speed: float = 0
 const MAX_SPEED = 100
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_right"):
-		go_right()
-	if Input.is_action_just_pressed("ui_left"):
-		go_left()
-	if Input.is_action_just_pressed("ui_up"):
-		go_up()
-	if Input.is_action_just_pressed("ui_down"):
-		go_down()
 
 	if moving():
 		if (goal - $PathFollow2D.position).length() < 1:
-			goal = Vector2.INF
+			goal = Vector2()
 			speed = 0
 			emit_signal("just_arrived")
 
@@ -76,6 +68,7 @@ func go_there(angleInf: float, angleSup: float):
 			speed = MAX_SPEED
 			self.set_curve(create_curve($PathFollow2D.position, p))
 			$PathFollow2D.offset = 0
+			goal = p
 			return true
 	
 	return false

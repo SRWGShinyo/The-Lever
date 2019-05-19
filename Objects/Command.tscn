@@ -29,7 +29,6 @@ radius = 14.3191
 radius = 25.1827
 
 [node name="Command" type="Node2D"]
-editor/display_folded = true
 position = Vector2( 178.71, 390.824 )
 script = ExtResource( 1 )
 
@@ -38,6 +37,7 @@ stream = ExtResource( 2 )
 volume_db = -16.0
 
 [node name="ClickableRoot" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
 [node name="CollisionShape2D" parent="ClickableRoot/ClickableArea" index="1"]
 position = Vector2( 6.61584, 3.67547 )
@@ -48,6 +48,7 @@ position = Vector2( 7.15991, 1.43198 )
 texture = ExtResource( 4 )
 
 [node name="Tableau" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 3.34039, 1.6702 )
 script = ExtResource( 5 )
 
@@ -62,6 +63,9 @@ volume_db = -12.0
 [node name="LeftArrow" parent="Tableau" instance=ExtResource( 3 )]
 editor/display_folded = true
 
+[node name="ClickableArea" parent="Tableau/LeftArrow" index="0"]
+distance_check = false
+
 [node name="CollisionShape2D" parent="Tableau/LeftArrow/ClickableArea" index="1"]
 position = Vector2( 113.664, -157.382 )
 rotation = 1.5708
@@ -70,6 +74,9 @@ shape = SubResource( 2 )
 [node name="UpArrow" parent="Tableau" instance=ExtResource( 3 )]
 editor/display_folded = true
 
+[node name="ClickableArea" parent="Tableau/UpArrow" index="0"]
+distance_check = false
+
 [node name="CollisionShape2D" parent="Tableau/UpArrow/ClickableArea" index="1"]
 position = Vector2( 153.151, -194.117 )
 shape = SubResource( 3 )
@@ -77,18 +84,29 @@ shape = SubResource( 3 )
 [node name="RightArrow" parent="Tableau" instance=ExtResource( 3 )]
 editor/display_folded = true
 
+[node name="ClickableArea" parent="Tableau/RightArrow" index="0"]
+distance_check = false
+
 [node name="CollisionShape2D" parent="Tableau/RightArrow/ClickableArea" index="1"]
 position = Vector2( 190.336, -154.411 )
 rotation = -1.5708
 shape = SubResource( 4 )
 
 [node name="DownArrow" parent="Tableau" instance=ExtResource( 3 )]
+editor/display_folded = true
+
+[node name="ClickableArea" parent="Tableau/DownArrow" index="0"]
+distance_check = false
 
 [node name="CollisionShape2D" parent="Tableau/DownArrow/ClickableArea" index="1"]
 position = Vector2( 151.26, -118.487 )
 shape = SubResource( 5 )
 
 [node name="OK" parent="Tableau" instance=ExtResource( 3 )]
+editor/display_folded = true
+
+[node name="ClickableArea" parent="Tableau/OK" index="0"]
+distance_check = false
 
 [node name="CollisionShape2D" parent="Tableau/OK/ClickableArea" index="1"]
 position = Vector2( 289.285, -157.563 )

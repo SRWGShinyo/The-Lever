@@ -2,7 +2,7 @@ extends Node2D
 
 var isvisible = false;
 
-func _ready():
+func _enter_tree():
 	$Tableau.set_process(false)
 	$Tableau.hide()
 	
