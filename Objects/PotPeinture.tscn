@@ -50,7 +50,6 @@ flip_h = true
 [node name="CollisionShape2D" parent="ClickableRoot/ClickableArea" index="1"]
 position = Vector2( 0, 2.04337 )
 shape = SubResource( 2 )
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="clicked" from="ClickableRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
 
 [editable path="ClickableRoot"]
