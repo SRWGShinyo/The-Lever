@@ -7,6 +7,21 @@ var hole_sprite: AnimatedSprite = null
 
 const SPEED := 100
 
+var barks = []
+var rng = RandomNumberGenerator.new()
+var time = Timer.new()
+
+func _playRandomBark():
+	var toplay = rng.randi_range(0, len(barks) - 1)
+	var audio = barks[toplay]
+	audio.play()
+
+func _ready():
+	rng.randomize()
+	barks.append(MainTitleMusic.bark1)
+	barks.append(MainTitleMusic.bark2)
+	barks.append(MainTitleMusic.bark3)
+
 func is_at_target() -> bool:
 	if target == Vector2.INF:
 		return true
