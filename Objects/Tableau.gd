@@ -13,7 +13,7 @@ var connected := false
 func _process(delta):
 	if not connected:
 		for platform in get_tree().get_nodes_in_group("Platform"):
-			var pf := platform as Platform
+			var pf = platform
 			pf.connect("just_arrived", self, "_on_just_arrived")
 		connected = true
 	
@@ -21,7 +21,7 @@ func _process(delta):
 		var todo: String = move_queue.front()
 		move_queue.pop_front()
 		for platform in get_tree().get_nodes_in_group("Platform"):
-			var pf := platform as Platform
+			var pf = platform
 			var success := false
 			match todo:
 				"left":
