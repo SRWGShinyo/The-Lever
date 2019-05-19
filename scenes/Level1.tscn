@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Roof.tscn" type="PackedScene" id=5]
 
 [node name="Level1Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,4 +16,6 @@ position = Vector2( 70, 600 )
 
 [node name="Lever" parent="." instance=ExtResource( 4 )]
 position = Vector2( 430, 590 )
+
+[node name="Roof" parent="." instance=ExtResource( 5 )]
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
