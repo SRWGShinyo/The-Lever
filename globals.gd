@@ -10,7 +10,7 @@ func getFadePanel():
 	return fadePanel
 	
 
-func get_player() -> Player:
+func get_player():
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() == 0:
 		return null

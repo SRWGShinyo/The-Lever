@@ -161,8 +161,6 @@ texture = ExtResource( 8 )
 [connection signal="pressed" from="CanvasLayer/CommandButton" to="." method="_on_CommandButton_pressed"]
 [connection signal="clicked" from="CanvasLayer/LeverRoot" to="." method="_on_LeverRoot_clicked"]
 [connection signal="button_down" from="PlayButton" to="." method="_on_PlayButton_button_down"]
-[connection signal="button_up" from="PlayButton" to="." method="_on_PlayButton_button_up"]
-[connection signal="focus_entered" from="PlayButton" to="." method="_on_PlayButton_focus_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="button_down" from="Options" to="." method="_on_Options_button_down"]
 [connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]

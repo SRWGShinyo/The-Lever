@@ -1,0 +1,55 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://PotPeinture.gd" type="Script" id=1]
+[ext_resource path="res://resources/SE/Painting Drop.wav" type="AudioStream" id=2]
+[ext_resource path="res://resources/sprites/Paint/peinture.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_1.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_2.png" type="Texture" id=5]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_3.png" type="Texture" id=6]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_4.png" type="Texture" id=7]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_5.png" type="Texture" id=8]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_6.png" type="Texture" id=9]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_7.png" type="Texture" id=10]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_8.png" type="Texture" id=11]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_9.png" type="Texture" id=12]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_10.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "drop",
+"speed": 16.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 12.715
+height = 5.69438
+
+[node name="PotPeinture" type="Node2D"]
+position = Vector2( 173.327, 112.972 )
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 3.09512, 6.19026 )
+stream = ExtResource( 2 )
+volume_db = -12.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+flip_h = true
+
+[node name="ClickableRoot" parent="." instance=ExtResource( 14 )]
+
+[node name="CollisionShape2D" parent="ClickableRoot/ClickableArea" index="1"]
+position = Vector2( 0, 2.04337 )
+shape = SubResource( 2 )
+[connection signal="clicked" from="ClickableRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
+
+[editable path="ClickableRoot"]

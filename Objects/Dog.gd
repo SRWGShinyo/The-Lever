@@ -29,7 +29,7 @@ func is_at_target() -> bool:
 
 func _on_ClickableArea_clicked():
 	animator = $"./Clickable/ClickableArea/AnimatedSprite"
-	var player: Player = $"/root/globals".get_player()
+	var player = $"/root/globals".get_player()
 	if player != null and player.has_item("bone"):
 		player.remove_item("bone")
 		hole_sprite = get_node("../Hole")
