@@ -1,7 +1,7 @@
 extends Node2D
 
 var target := Vector2.INF
-onready var animator := $Clickable/ClickableArea/AnimatedSprite
+onready var animator := null
 var has_bone := false
 var hole_sprite: AnimatedSprite = null
 
@@ -28,6 +28,7 @@ func is_at_target() -> bool:
 	return position.x > target.x - 10 and position.x < target.x + 10
 
 func _on_ClickableArea_clicked():
+	animator = $"./Clickable/ClickableArea/AnimatedSprite"
 	var player: Player = $"/root/globals".get_player()
 	if player != null and player.has_item("bone"):
 		player.remove_item("bone")
@@ -40,6 +41,7 @@ func _on_ClickableArea_clicked():
 			animator.flip_h = player.position.x < position.x
 
 func _on_AnimatedSprite_animation_finished():
+	animator = $"./Clickable/ClickableArea/AnimatedSprite"
 	if animator.animation == "Pet" or animator.animation == "Dig":
 		animator.play("Idle")
 

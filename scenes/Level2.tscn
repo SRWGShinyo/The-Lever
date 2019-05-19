@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Rail.tscn" type="PackedScene" id=2]
@@ -17,9 +17,6 @@
 [ext_resource path="res://Objects/BG.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.0851, 19.7614 )
-
-[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16.1728, 5.17743 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -58,22 +55,11 @@ position = Vector2( 43.0003, 404.003 )
 [node name="Path2D" parent="Platform" index="0"]
 editor/display_folded = true
 
-[node name="AnimatedSprite" parent="Platform/Path2D/PathFollow2D" index="0"]
-frame = 3
-
 [node name="Dog" parent="." instance=ExtResource( 6 )]
-editor/display_folded = true
-position = Vector2( 330.352, 596.079 )
-
-[node name="Clickable" parent="Dog" index="0"]
-script = null
+position = Vector2( 326.58, 596.009 )
 
 [node name="AnimatedSprite" parent="Dog/Clickable/ClickableArea" index="1"]
-frame = 4
-
-[node name="CollisionShape2D" parent="Dog/Clickable/ClickableArea" index="2"]
-position = Vector2( 1.10416, 4.23267 )
-shape = SubResource( 1 )
+frame = 2
 
 [node name="Hole" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
@@ -87,7 +73,7 @@ editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Hole/ClickableRoot/ClickableArea" index="1"]
 position = Vector2( 0.237823, -4.99432 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Bone" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
