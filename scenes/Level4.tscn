@@ -14,14 +14,21 @@ script = ExtResource( 2 )
 [node name="Rails" parent="Level3Root/Level2Root/Level1Root" index="5"]
 editor/display_folded = true
 
+[node name="Platform2" parent="Level3Root/Level2Root/Level1Root" index="8"]
+editor/display_folded = false
+
 [node name="Path2D" parent="Level3Root/Level2Root/Level1Root/Platform2" index="0"]
 editor/display_folded = false
+can_fall = true
 
 [node name="PathFollow2D" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D" index="0"]
 editor/display_folded = false
 
 [node name="WaterBucket" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="0"]
 visible = false
+
+[node name="KinematicBody2D" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
+editor/display_folded = false
 
 [node name="Hole" parent="Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = false

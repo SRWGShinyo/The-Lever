@@ -12,6 +12,12 @@ export var can_go_right := true
 export var can_go_down := true
 export var can_go_up := true
 
+export var can_fall := false
+
+var attached := true
+
+var velocity = Vector2(0, 0)
+
 var last_point := Vector2()
 
 func moving() -> bool:
@@ -30,7 +36,7 @@ const MAX_SPEED = 100
 
 func _process(delta):
 
-	if moving():
+	if attached and moving():
 		if (goal - $PathFollow2D.position).length() < 1:
 			goal = Vector2()
 			speed = 0
@@ -38,7 +44,11 @@ func _process(delta):
 			emit_signal("just_arrived")
 
 func _physics_process(delta):
-	$PathFollow2D.offset += speed * delta
+	if attached:
+		$PathFollow2D.offset += speed * delta
+	else:
+		velocity.y += 10
+		velocity = $PathFollow2D/KinematicBody2D.move_and_slide(velocity, Vector2(0, -1))
 
 func go_right():
 	if can_go_right:
@@ -61,12 +71,16 @@ func go_down():
 	return false
 
 func go_to_point(p):
+	if not attached:
+		return
 	speed = MAX_SPEED
 	self.set_curve(create_curve($PathFollow2D.position, p))
 	$PathFollow2D.offset = 0
 	goal = p
 
 func go_there(angleInf: float, angleSup: float):
+	if not attached:
+		return false
 	angleInf = normalize_angle(angleInf)
 	angleSup = normalize_angle(angleSup)
 
@@ -105,3 +119,5 @@ func _on_Area2D_body_entered(body):
 	if body != $PathFollow2D/KinematicBody2D:
 		go_to_point(last_point)
 		emit_signal("crash")
+		if can_fall:
+			attached = false
