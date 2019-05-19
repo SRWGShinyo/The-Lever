@@ -39,5 +39,4 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 2 )
-animation = "activate"
 [connection signal="clicked" from="ClickableArea" to="." method="_on_ClickableArea_clicked"]

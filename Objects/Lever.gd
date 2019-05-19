@@ -8,6 +8,8 @@ func _on_ClickableArea_clicked():
 	var fadePanel: AnimationPlayer = get_node("/root/globals").getFadePanel()
 	fadePanel.connect("animation_finished", self, "_animation_finished")
 	fadePanel.play("Fade")
+	$AnimatedSprite.play("activate")
+	$AnimatedSprite.frame = 0
 	emit_signal("clicked")
 
 func _animation_finished(anim_name: String):
