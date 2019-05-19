@@ -16,13 +16,13 @@ outline_size = 3
 outline_color = Color( 0.796078, 0.192157, 0.192157, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 28
 outline_size = 2
 outline_color = Color( 0.894118, 0.486275, 0.0509804, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 37
 outline_size = 3
 outline_color = Color( 0.796078, 0.192157, 0.192157, 1 )
@@ -45,7 +45,7 @@ align = 1
 valign = 1
 
 [node name="LeverRoot" parent="." instance=ExtResource( 3 )]
-position = Vector2( 369.199, 687.413 )
+position = Vector2( 367.441, 671.59 )
 
 [node name="Art and Design" type="Label" parent="."]
 margin_left = 7.03235
@@ -60,7 +60,7 @@ margin_left = -2.0
 margin_top = 58.0
 margin_right = 703.0
 margin_bottom = 123.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Florian Ortega"
 align = 1
 valign = 1
@@ -70,7 +70,7 @@ margin_left = 5.27423
 margin_top = 254.923
 margin_right = 318.274
 margin_bottom = 306.923
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Programming:"
 
 [node name="ThibsYo" type="Label" parent="Development"]
@@ -78,7 +78,7 @@ margin_left = 3.0
 margin_top = 54.0
 margin_right = 707.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "   Thibaut de la Chapelle / Yohann Degli Esposti"
 valign = 1
 
@@ -87,7 +87,7 @@ margin_left = 7.03229
 margin_top = 411.393
 margin_right = 320.032
 margin_bottom = 463.393
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Game Design:"
 
 [node name="Yo" type="Label" parent="GameDesign"]
@@ -95,7 +95,7 @@ margin_left = 1.24194
 margin_top = 59.2742
 margin_right = 705.242
 margin_bottom = 126.274
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = " Yohann Degli Esposti"
 align = 1
 valign = 1
@@ -105,7 +105,7 @@ margin_left = 5.27423
 margin_top = 530.943
 margin_right = 318.274
 margin_bottom = 582.943
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Music:"
 
 [node name="heathley Bros" type="Label" parent="Musics"]
@@ -113,7 +113,7 @@ margin_left = 6.51624
 margin_top = 50.4838
 margin_right = 710.516
 margin_bottom = 117.484
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "'Fun Puzzle Quest !' - HeatleyBros"
 align = 1
 valign = 1

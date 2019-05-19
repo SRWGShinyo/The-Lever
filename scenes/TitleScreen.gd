@@ -23,6 +23,8 @@ func _on_CreditButton_pressed():
 	sceneFade = 3
 
 func _on_LeverRoot_clicked():
+	$LeverRoot/AnimatedSprite.play("activate")
+	
 	if (sceneFade == 0):
 		pass
 	

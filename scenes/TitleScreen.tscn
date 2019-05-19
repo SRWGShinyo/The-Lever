@@ -41,7 +41,7 @@ margin_right = 650.413
 margin_bottom = 439.45
 
 [node name="LeverRoot" parent="." instance=ExtResource( 6 )]
-position = Vector2( 362.167, 618.848 )
+position = Vector2( 362.167, 671.591 )
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]
