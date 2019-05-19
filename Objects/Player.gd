@@ -46,7 +46,7 @@ func _physics_process(delta):
 		velocity.y = -JUMP_STRENGTH
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-	print_debug(is_on_floor())
+
 	if not last_is_on_floor and not is_on_floor():
 		$AnimatedSprite.play("Jump")
 	else:

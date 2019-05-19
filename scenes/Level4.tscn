@@ -23,9 +23,6 @@ editor/display_folded = false
 [node name="WaterBucket" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="0"]
 visible = false
 
-[node name="AnimatedSprite" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
-frame = 3
-
 [node name="Hole" parent="Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = false
 
