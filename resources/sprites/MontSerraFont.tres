@@ -4,5 +4,6 @@
 
 [resource]
 size = 48
-outline_color = Color( 0.85098, 0.592157, 0.592157, 1 )
+outline_size = 15
+outline_color = Color( 0.443137, 0.74902, 0.305882, 1 )
 font_data = ExtResource( 1 )
