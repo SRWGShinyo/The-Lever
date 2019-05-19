@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 var velocity := Vector2()
 
 var last_is_on_floor = false
@@ -8,6 +10,17 @@ const MAX_SPEED = 140
 const gravity = 10
 const JUMP_STRENGTH = 360
 const DAMPENING: float = 0.7
+
+var inventory := {}
+
+func give_item(name: String) -> void:
+	inventory[name] = name
+
+func has_item(name: String) -> bool:
+	return inventory.has(name)
+
+func remove_item(name: String) -> void:
+	inventory.erase(name)
 
 func _ready():
 	pass
@@ -48,3 +61,7 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = false
 	elif velocity.x < -0.1:
 		$AnimatedSprite.flip_h = true
+
+
+func _on_Bone_bone_found():
+	give_item("bone")

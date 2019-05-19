@@ -8,3 +8,10 @@ func getFadePanel():
 		fadePanel = fadePanelModel.instance()
 		get_tree().root.call_deferred("add_child", fadePanel)
 	return fadePanel
+	
+
+func get_player() -> Player:
+	var players = get_tree().get_nodes_in_group("Player")
+	if players.size() == 0:
+		return null
+	return players[0]
