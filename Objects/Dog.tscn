@@ -1,0 +1,76 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Objects/Dog.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile000.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile001.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile002.png" type="Texture" id=5]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile003.png" type="Texture" id=6]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile004.png" type="Texture" id=7]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile005.png" type="Texture" id=8]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile006.png" type="Texture" id=9]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile007.png" type="Texture" id=10]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile008.png" type="Texture" id=11]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile000.png" type="Texture" id=12]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile001.png" type="Texture" id=13]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile002.png" type="Texture" id=14]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile003.png" type="Texture" id=15]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile004.png" type="Texture" id=16]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile005.png" type="Texture" id=17]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_1.png" type="Texture" id=18]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_2.png" type="Texture" id=19]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_3.png" type="Texture" id=20]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_4.png" type="Texture" id=21]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_5.png" type="Texture" id=22]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_1.png" type="Texture" id=23]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_2.png" type="Texture" id=24]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_3.png" type="Texture" id=25]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_4.png" type="Texture" id=26]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_5.png" type="Texture" id=27]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_6.png" type="Texture" id=28]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Dig",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "Pet",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.9799, 19.6169 )
+
+[node name="Dog" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Clickable" parent="." instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Clickable/ClickableArea" index="1"]
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" parent="Clickable/ClickableArea" index="2"]
+position = Vector2( 0, 4.49675 )
+shape = SubResource( 2 )
+[connection signal="clicked" from="Clickable/ClickableArea" to="." method="_on_ClickableArea_clicked"]
+[connection signal="animation_finished" from="Clickable/ClickableArea/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+
+[editable path="Clickable"]

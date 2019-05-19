@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ProtoPlatform.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://resources/sprites/Platform/Platform_1.png" type="Texture" id=2]
+[ext_resource path="res://resources/sprites/Platform/Platform_2.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/Platform/Platform_3.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/Platform/Platform_4.png" type="Texture" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 240, 0, 0, 0, 0, 0, 240, 190 )
 }
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31.5442, 5.95053 )
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( -47.45, -9.56, 48.63, -9.34, 48.4, 6.88, 33.32, 7, 17.26, 22.85, -16.58, 22.8, -32.13, 7.05, -47.71, 7.06 )
 
 [node name="Platform" type="Node2D"]
 
@@ -22,6 +33,12 @@ rotation = 0.00101338
 rotate = false
 loop = false
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+scale = Vector2( 1, 1 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
 rotation = -0.00101338
 collision_layer = 9
@@ -29,9 +46,6 @@ collision_mask = 2
 motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
-shape = SubResource( 2 )
+position = Vector2( -0.36805, -6.76182 )
+shape = SubResource( 4 )
 one_way_collision = true
-
-[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
-scale = Vector2( 1, 0.2 )
-texture = ExtResource( 2 )
