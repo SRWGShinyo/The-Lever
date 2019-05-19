@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.1234, 31.724 )
+extents = Vector2( 21.5097, 19.7087 )
 
 [node name="ClickableRoot" type="Node2D"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -6,8 +6,56 @@
 [ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Dog.gd" type="Script" id=7]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile000.png" type="Texture" id=8]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile001.png" type="Texture" id=9]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile002.png" type="Texture" id=10]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile003.png" type="Texture" id=11]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile004.png" type="Texture" id=12]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile005.png" type="Texture" id=13]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile006.png" type="Texture" id=14]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile007.png" type="Texture" id=15]
+[ext_resource path="res://resources/sprites/Doggo/Walk/tile008.png" type="Texture" id=16]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile000.png" type="Texture" id=17]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile001.png" type="Texture" id=18]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile002.png" type="Texture" id=19]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile003.png" type="Texture" id=20]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile004.png" type="Texture" id=21]
+[ext_resource path="res://resources/sprites/Doggo/Idle/tile005.png" type="Texture" id=22]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_1.png" type="Texture" id=23]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_2.png" type="Texture" id=24]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_3.png" type="Texture" id=25]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_4.png" type="Texture" id=26]
+[ext_resource path="res://resources/sprites/Doggo/Dig/doggodig_5.png" type="Texture" id=27]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_1.png" type="Texture" id=28]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_2.png" type="Texture" id=29]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_3.png" type="Texture" id=30]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_4.png" type="Texture" id=31]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_5.png" type="Texture" id=32]
+[ext_resource path="res://resources/sprites/Doggo/Pet/Doggopet_6.png" type="Texture" id=33]
 
-[sub_resource type="NavigationPolygon" id=1]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "Dig",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "Pet",
+"speed": 8.0
+} ]
 
 [node name="Level2Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,21 +69,27 @@ position = Vector2( 70, 600 )
 position = Vector2( 430, 590 )
 
 [node name="Platform" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 43.0003, 404.003 )
 
 [node name="Dog" parent="." instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( 317.578, 604.553 )
-scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 7 )
 
-[node name="ClickableArea" parent="Dog" index="0"]
-editor/display_folded = true
+[node name="Sprite" parent="Dog/ClickableArea" index="0"]
+texture = null
 
-[node name="Navigation2D" type="Navigation2D" parent="."]
+[node name="CollisionShape2D" parent="Dog/ClickableArea" index="1"]
+position = Vector2( 0.257019, 3.85547 )
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 1 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Dog/ClickableArea" index="2"]
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 3
+playing = true
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
+[connection signal="clicked" from="Dog/ClickableArea" to="Dog" method="_on_ClickableArea_clicked"]
+[connection signal="animation_finished" from="Dog/ClickableArea/AnimatedSprite" to="Dog" method="_on_AnimatedSprite_animation_finished"]
 
 [editable path="Platform"]
 

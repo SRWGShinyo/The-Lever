@@ -3,7 +3,7 @@ extends Area2D
 signal clicked
 
 export var distance_check = true
-export var radius_check = 100
+export var radius_check = 85
 
 func can_click(event: InputEventMouseButton) -> bool:
 	if not distance_check:
@@ -11,7 +11,7 @@ func can_click(event: InputEventMouseButton) -> bool:
 	var player := get_tree().get_nodes_in_group("Player")
 	if player.size() == 0:
 		return true
-	return ((player[0] as KinematicBody2D).position - event.position).length() < 50
+	return ((player[0] as KinematicBody2D).position - event.position).length() < radius_check
 
 func _on_ClickableArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
