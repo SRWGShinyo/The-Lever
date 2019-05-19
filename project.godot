@@ -39,6 +39,9 @@ MainTitleMusic="*res://MainTitleMusic.tscn"
 
 window/size/width=720
 window/size/height=720
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [global]
 
