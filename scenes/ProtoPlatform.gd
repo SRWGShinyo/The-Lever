@@ -1,6 +1,18 @@
 extends Path2D
 
+class_name Platform
+
+signal just_arrived
+
 var graph: MyGraph = null
+
+export var can_go_left := true
+export var can_go_right := true
+export var can_go_down := true
+export var can_go_up := true
+
+func moving() -> bool:
+	return goal != Vector2.INF
 
 func _enter_tree():
 	graph = MyGraph.new()
@@ -22,26 +34,34 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
 		go_down()
 
-	if goal != Vector2.INF:
-		print_debug((goal - $PathFollow2D.position).length())
+	if moving():
 		if (goal - $PathFollow2D.position).length() < 1:
 			goal = Vector2.INF
 			speed = 0
+			emit_signal("just_arrived")
 
 func _physics_process(delta):
 	$PathFollow2D.offset += speed * delta
 
 func go_right():
-	go_there(-PI / 4, PI / 4)
+	if can_go_right:
+		return go_there(-PI / 4, PI / 4)
+	return false
 
 func go_up():
-	go_there(5.0 / 4 * PI, 7.0 / 4 * PI)
+	if can_go_up:
+		return go_there(5.0 / 4 * PI, 7.0 / 4 * PI)
+	return false
 
 func go_left():
-	go_there(3.0 / 4 * PI, 5.0 / 4 * PI)
+	if can_go_left:
+		return go_there(3.0 / 4 * PI, 5.0 / 4 * PI)
+	return false
 
 func go_down():
-	go_there(1.0 / 4 * PI, 3.0 / 4 * PI)
+	if can_go_down:
+		return go_there(1.0 / 4 * PI, 3.0 / 4 * PI)
+	return false
 
 
 func go_there(angleInf: float, angleSup: float):
@@ -56,6 +76,9 @@ func go_there(angleInf: float, angleSup: float):
 			speed = MAX_SPEED
 			self.set_curve(create_curve($PathFollow2D.position, p))
 			$PathFollow2D.offset = 0
+			return true
+	
+	return false
 
 func create_curve(source: Vector2, origin: Vector2) -> Curve2D:
 	var curve := Curve2D.new()

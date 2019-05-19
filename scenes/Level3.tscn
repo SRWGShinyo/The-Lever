@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Level2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level3.gd" type="Script" id=2]
+[ext_resource path="res://scenes/level1_3_curve2d.tres" type="Curve2D" id=3]
+[ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/sprites/Plant/bébéplant.png" type="Texture" id=5]
 
 [node name="Level3Root" type="Node2D"]
 
@@ -10,4 +13,68 @@
 [node name="Level1Root" parent="Level2Root" index="0"]
 script = ExtResource( 2 )
 
+[node name="Rails" parent="Level2Root/Level1Root" index="5"]
+editor/display_folded = true
+
+[node name="Rail2" parent="Level2Root/Level1Root/Rails" index="1"]
+editor/display_folded = true
+position = Vector2( 267.016, 286.768 )
+
+[node name="Sprite" parent="Level2Root/Level1Root/Rails/Rail2" index="0"]
+position = Vector2( -0.000366211, -38.9775 )
+region_rect = Rect2( -20.25, 0, 8.14, 186.24 )
+
+[node name="Platform" parent="Level2Root/Level1Root" index="7"]
+editor/display_folded = true
+
+[node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
+editor/display_folded = true
+curve = ExtResource( 3 )
+
+[node name="PathFollow2D" parent="Level2Root/Level1Root/Platform/Path2D" index="0"]
+editor/display_folded = true
+position = Vector2( 3.0652, 0.21701 )
+
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
+frame = 0
+
+[node name="Platform2" parent="Level2Root/Level1Root" index="8" instance=ExtResource( 4 )]
+editor/display_folded = true
+position = Vector2( 600, 300 )
+
+[node name="Path2D" parent="Level2Root/Level1Root/Platform2" index="0"]
+editor/display_folded = true
+position = Vector2( -546.537, 0 )
+curve = ExtResource( 3 )
+can_go_down = false
+
+[node name="PathFollow2D" parent="Level2Root/Level1Root/Platform2/Path2D" index="0"]
+editor/display_folded = true
+position = Vector2( 543.065, 0.21701 )
+offset = 1110.15
+
+[node name="Hole" parent="Level2Root/Level1Root" index="10"]
+editor/display_folded = true
+visible = false
+
+[node name="Seed" parent="Level2Root/Level1Root" index="11"]
+editor/display_folded = true
+visible = false
+
+[node name="Plant" type="Node2D" parent="Level2Root/Level1Root" index="12"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Level2Root/Level1Root/Plant"]
+position = Vector2( 197.086, 637.303 )
+texture = ExtResource( 5 )
+
+[node name="Bone" parent="Level2Root/Level1Root" index="13"]
+visible = false
+
 [editable path="Level2Root"]
+
+[editable path="Level2Root/Level1Root/Rails/Rail2"]
+
+[editable path="Level2Root/Level1Root/Platform"]
+
+[editable path="Level2Root/Level1Root/Platform2"]
