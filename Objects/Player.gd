@@ -11,7 +11,7 @@ const gravity = 10
 const JUMP_STRENGTH = 360
 const DAMPENING: float = 0.7
 
-var inventory := {}
+onready var inventory = $"/root/globals".inventory
 
 func give_item(name: String) -> void:
 	inventory[name] = name
