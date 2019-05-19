@@ -4,7 +4,10 @@
 
 [node name="Rail" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
 scale = Vector2( 1, 2.96523 )
 texture = ExtResource( 1 )
 region_enabled = true

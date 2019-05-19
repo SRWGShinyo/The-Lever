@@ -7,16 +7,18 @@ func _enter_tree():
 	$Tableau.hide()
 	
 
+func set_visible(v: bool):
+	if not v:
+		$Tableau.hide()
+		isvisible = false
+	else:
+		$Tableau.show()
+		isvisible = true
+		$Tableau.move_queue.clear()
 
+func switch_visible():
+	set_visible(not isvisible)
 
 func _on_ClickableCommandArea_clicked():
 	MainTitleMusic.changeFxVolume($BipBoup)
-	if (isvisible):
-		$Tableau.set_process(false)
-		$Tableau.hide()
-		isvisible = false
-	
-	else:
-		$Tableau.set_process(true)
-		$Tableau.show()
-		isvisible = true
+	switch_visible()

@@ -19,13 +19,9 @@ extents = Vector2( 17.006, 12.3409 )
 [node name="Level1Root" parent="Level2Root" index="0"]
 script = ExtResource( 2 )
 
-[node name="Rail2" parent="Level2Root/Level1Root/Rails" index="1"]
-editor/display_folded = true
-position = Vector2( 267.016, 286.768 )
-
-[node name="Sprite" parent="Level2Root/Level1Root/Rails/Rail2" index="0"]
-position = Vector2( -0.000366211, -38.9775 )
-region_rect = Rect2( -20.25, 0, 8.14, 186.24 )
+[node name="Sprite" parent="Level2Root/Level1Root/Rails/Rail2/CanvasLayer" index="0"]
+position = Vector2( 330, 299.783 )
+region_rect = Rect2( -20.25, 0, 8.14, 181.23 )
 
 [node name="Platform2" parent="Level2Root/Level1Root" index="8" instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -46,10 +42,12 @@ offset = 1110.15
 editor/display_folded = true
 position = Vector2( -0.277344, -31.5218 )
 rotation = -0.00101338
-scale = Vector2( 1, 1 )
 
 [node name="ClickableRoot" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/WaterBucket" index="0"]
 editor/display_folded = true
+
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
+frame = 1
 
 [node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="2"]
 editor/display_folded = true
@@ -61,6 +59,9 @@ curve = ExtResource( 4 )
 [node name="PathFollow2D" parent="Level2Root/Level1Root/Platform/Path2D" index="0"]
 editor/display_folded = true
 position = Vector2( 3.0652, 0.21701 )
+
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
+frame = 2
 
 [node name="Hole" parent="Level2Root/Level1Root" index="11"]
 visible = false

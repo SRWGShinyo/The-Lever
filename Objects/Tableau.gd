@@ -40,6 +40,8 @@ func _process(delta):
 
 func _on_just_arrived():
 	waiting -= 1
+	if waiting < 0:
+		waiting = 0
 
 func _on_ClickableLeftArea_clicked():
 	MainTitleMusic.changeFxVolume($Click)
@@ -64,3 +66,4 @@ func _on_ClickableDownArea_clicked():
 func _on_ClickableOKArea_clicked():
 	MainTitleMusic.changeFxVolume($Click)
 	moving = true
+	$"..".set_visible(false)

@@ -48,7 +48,6 @@ position = Vector2( 7.15991, 1.43198 )
 texture = ExtResource( 4 )
 
 [node name="Tableau" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 3.34039, 1.6702 )
 script = ExtResource( 5 )
 

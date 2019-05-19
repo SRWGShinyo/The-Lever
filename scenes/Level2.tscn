@@ -2,8 +2,8 @@
 
 [ext_resource path="res://scenes/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level2.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Command.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Rail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Rail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Command.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Dog.tscn" type="PackedScene" id=7]
@@ -30,27 +30,26 @@ extents = Vector2( 16.1007, 7.41296 )
 [node name="Level1Root" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Command" parent="Level1Root" instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 279.41, 617.874 )
-
 [node name="Rails" type="Node2D" parent="Level1Root"]
-editor/display_folded = true
 position = Vector2( 20.5827, 13.2318 )
 
-[node name="Rail" parent="Level1Root/Rails" instance=ExtResource( 4 )]
-position = Vector2( 239.268, 431.667 )
+[node name="Rail" parent="Level1Root/Rails" instance=ExtResource( 3 )]
 
-[node name="Sprite" parent="Level1Root/Rails/Rail" index="0"]
-region_rect = Rect2( -20.25, 0, 8.14, 99.4 )
+[node name="Sprite" parent="Level1Root/Rails/Rail/CanvasLayer" index="0"]
+position = Vector2( 260, 448.372 )
+region_rect = Rect2( -20.25, 0, 8.14, 98.87 )
 
-[node name="Rail2" parent="Level1Root/Rails" instance=ExtResource( 4 )]
-position = Vector2( 123.363, 287.057 )
+[node name="Rail2" parent="Level1Root/Rails" instance=ExtResource( 3 )]
 rotation = 1.5708
 
-[node name="Sprite" parent="Level1Root/Rails/Rail2" index="0"]
-position = Vector2( -0.00012207, -13.5286 )
-region_rect = Rect2( -20.25, 0, 8.14, 71.08 )
+[node name="Sprite" parent="Level1Root/Rails/Rail2/CanvasLayer" index="0"]
+position = Vector2( 160, 299.783 )
+rotation = 1.5708
+region_rect = Rect2( -20.25, 0, 8.14, 69.72 )
+
+[node name="Command" parent="Level1Root" instance=ExtResource( 4 )]
+editor/display_folded = true
+position = Vector2( 279.41, 617.874 )
 
 [node name="Floor2" parent="Level1Root" instance=ExtResource( 5 )]
 
@@ -62,7 +61,7 @@ position = Vector2( 56.9348, 299.783 )
 curve = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Level1Root/Platform/Path2D/PathFollow2D" index="0"]
-frame = 3
+frame = 1
 
 [node name="Dog" parent="Level1Root" instance=ExtResource( 7 )]
 editor/display_folded = true
@@ -103,6 +102,12 @@ shape = SubResource( 3 )
 
 [editable path="Level1Root"]
 
+[editable path="Level1Root/BG"]
+
+[editable path="Level1Root/Rails/Rail"]
+
+[editable path="Level1Root/Rails/Rail2"]
+
 [editable path="Level1Root/Command"]
 
 [editable path="Level1Root/Command/Tableau/LeftArrow"]
@@ -114,10 +119,6 @@ shape = SubResource( 3 )
 [editable path="Level1Root/Command/Tableau/DownArrow"]
 
 [editable path="Level1Root/Command/Tableau/OK"]
-
-[editable path="Level1Root/Rails/Rail"]
-
-[editable path="Level1Root/Rails/Rail2"]
 
 [editable path="Level1Root/Platform"]
 
