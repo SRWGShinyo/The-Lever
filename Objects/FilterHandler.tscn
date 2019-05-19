@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Objects/FilterHandler.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/sprites/Command/noi.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/Command/Blu.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/Command/rou.png" type="Texture" id=5]
+[ext_resource path="res://resources/sprites/Command/ver.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 0.172549 )
@@ -11,6 +15,18 @@ bg_color = Color( 0, 1, 0, 0.172549 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 1, 0.172549 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 31.8146
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 31.3618
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 33.0846
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 31.8667
 
 [node name="FilterHandler" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,19 +62,48 @@ editor/display_folded = true
 position = Vector2( 44.2508, 42.3859 )
 scale = Vector2( 0.7, 0.7 )
 
+[node name="Sprite" parent="BlackFilter/ClickableArea" index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="BlackFilter/ClickableArea" index="1"]
+shape = SubResource( 4 )
+
 [node name="BlueButton" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 159.606, 42.9709 )
 scale = Vector2( 0.7, 0.7 )
+
+[node name="Sprite" parent="BlueButton/ClickableArea" index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="BlueButton/ClickableArea" index="1"]
+shape = SubResource( 5 )
 
 [node name="RedButton" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 101.902, 42.9709 )
 scale = Vector2( 0.7, 0.7 )
 
+[node name="Sprite" parent="RedButton/ClickableArea" index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" parent="RedButton/ClickableArea" index="1"]
+shape = SubResource( 6 )
+
 [node name="GreenButton" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( 217.31, 42.9709 )
 scale = Vector2( 0.7, 0.7 )
+
+[node name="Sprite" parent="GreenButton/ClickableArea" index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="GreenButton/ClickableArea" index="1"]
+shape = SubResource( 7 )
 [connection signal="tree_entered" from="." to="." method="_on_FilterHandler_tree_entered"]
 [connection signal="clicked" from="BlackFilter/ClickableArea" to="." method="_on_ClickableArea_clicked"]
 [connection signal="clicked" from="BlueButton/ClickableArea" to="." method="_on_ClickableBlueArea_clicked"]
