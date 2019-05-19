@@ -46,6 +46,7 @@ valign = 1
 
 [node name="LeverRoot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 367.441, 671.59 )
+scale = Vector2( 1, 1 )
 
 [node name="Art and Design" type="Label" parent="."]
 margin_left = 7.03235

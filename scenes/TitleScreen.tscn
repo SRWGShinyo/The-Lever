@@ -73,7 +73,6 @@ valign = 1
 layer = -1
 
 [node name="CommandButton" parent="CanvasLayer" instance=ExtResource( 3 )]
-editor/display_folded = true
 margin_left = 207.027
 margin_top = 481.285
 margin_right = 507.027
@@ -92,9 +91,9 @@ custom_styles/panel = SubResource( 2 )
 [node name="LeverRoot" parent="CanvasLayer" instance=ExtResource( 4 )]
 editor/display_folded = true
 position = Vector2( 361.393, 671.591 )
+scale = Vector2( 1, 1 )
 
 [node name="PlayButton" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
 margin_left = 292.571
 margin_top = 262.747
 margin_right = 412.571

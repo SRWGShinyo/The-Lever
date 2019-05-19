@@ -1,7 +1,5 @@
 extends Node2D
 
-signal bone_found
-
 func _on_ClickableArea_clicked():
-	emit_signal("bone_found")
+	$"/root/globals".get_player().give_item("bone")
 	queue_free()

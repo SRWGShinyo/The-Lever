@@ -115,6 +115,7 @@ text = "The only thing this game lacks are easter eggs..."
 [node name="LeverRoot" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 357.779, 674.747 )
+scale = Vector2( 1, 1 )
 [connection signal="clicked" from="LeverRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
 
 [editable path="LeverRoot"]
