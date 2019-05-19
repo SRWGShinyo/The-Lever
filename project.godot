@@ -27,17 +27,22 @@ _global_script_class_icons={
 [application]
 
 config/name="The Lever"
-run/main_scene="res://scenes/Level1.tscn"
+run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 globals="*res://globals.gd"
+MainTitleMusic="*res://MainTitleMusic.tscn"
 
 [display]
 
-window/size/width=640
-window/size/height=640
+window/size/width=720
+window/size/height=720
+
+[global]
+
+size=false
 
 [input]
 
