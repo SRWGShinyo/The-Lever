@@ -27,6 +27,7 @@ func changeMusicVolume():
 	audioLv1.volume_db = _computeDB(musiclvl)
 	audioLv2.volume_db = _computeDB(musiclvl)
 	
-func changeFxVolume():
-	#FIXME: implement this for  any FX.
+func changeFxVolume(audio : AudioStreamPlayer):
+	audio.volume_db = _computeDB(fxlvl)
+	audio.play()
 	pass

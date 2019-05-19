@@ -13,5 +13,7 @@ func _ready():
 #	pass
 
 
+
+
 func _on_ClickableArea_clicked():
 	$LeverRoot.set_scene_to_load("res://scenes/TitleScreen.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Lever.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://resources/sprites/Lever/tile002.png" type="Texture" id=9]
 [ext_resource path="res://resources/sprites/Lever/tile001.png" type="Texture" id=10]
 [ext_resource path="res://resources/sprites/Lever/tile000.png" type="Texture" id=11]
+[ext_resource path="res://resources/SE/lever.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.3273, 31.3162 )
@@ -39,5 +40,9 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 2 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource( 12 )
+volume_db = -12.0
 [connection signal="clicked" from="ClickableArea" to="." method="_on_ClickableArea_clicked"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
