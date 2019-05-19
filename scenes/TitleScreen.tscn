@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scenes/PlayButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/OptionsButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/CreditButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/CommandButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/PlayButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/OptionsButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/CreditButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=7]
 
 [node name="TitleScreenRoot" type="Control"]
 anchor_right = 1.0
@@ -21,27 +22,34 @@ margin_bottom = 121.1
 texture = ExtResource( 2 )
 stretch_mode = 4
 
-[node name="PlayButton" parent="." instance=ExtResource( 3 )]
+[node name="CommandButton" parent="." instance=ExtResource( 3 )]
+margin_left = 224.948
+margin_top = 482.188
+margin_right = 524.948
+margin_bottom = 542.188
+
+[node name="PlayButton" parent="." instance=ExtResource( 4 )]
 margin_left = 292.571
 margin_top = 262.747
 margin_right = 412.571
 margin_bottom = 322.747
 rect_min_size = Vector2( 120, 60 )
 
-[node name="Options" parent="." instance=ExtResource( 4 )]
+[node name="Options" parent="." instance=ExtResource( 5 )]
 margin_left = 40.179
 margin_top = 377.2
 margin_right = 250.179
 margin_bottom = 437.2
 
-[node name="CreditButton" parent="." instance=ExtResource( 5 )]
+[node name="CreditButton" parent="." instance=ExtResource( 6 )]
 margin_left = 440.413
 margin_top = 379.45
 margin_right = 650.413
 margin_bottom = 439.45
 
-[node name="LeverRoot" parent="." instance=ExtResource( 6 )]
+[node name="LeverRoot" parent="." instance=ExtResource( 7 )]
 position = Vector2( 362.167, 671.591 )
+[connection signal="pressed" from="CommandButton" to="." method="_on_CommandButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]

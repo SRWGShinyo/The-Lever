@@ -20,6 +20,9 @@ func _on_Options_pressed():
 func _on_CreditButton_pressed():
 	sceneFade = 3
 
+func _on_CommandButton_pressed():
+	sceneFade = 4
+
 func _on_LeverRoot_clicked():
 	if (sceneFade == 0):
 		pass
@@ -33,3 +36,8 @@ func _on_LeverRoot_clicked():
 	
 	if (sceneFade == 3):
 		$LeverRoot.set_scene_to_load("res://scenes/Credits.tscn")
+		
+	if (sceneFade == 4):
+		$LeverRoot.set_scene_to_load("res://scenes/Commands.tscn")
+
+
