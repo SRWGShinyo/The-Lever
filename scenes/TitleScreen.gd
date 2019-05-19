@@ -14,8 +14,6 @@ func _ready():
 func _on_PlayButton_pressed():
 	sceneFade = 1
 
-	
-
 func _on_Options_pressed():
 	sceneFade = 2
 
