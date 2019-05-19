@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 480, 10 )
 
 [node name="FloorRoot" type="Node2D"]
-position = Vector2( 320, 630 )
+position = Vector2( 360, 662.8 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 5
@@ -11,5 +12,4 @@ collision_mask = 0
 mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-scale = Vector2( 32, 1 )
 shape = SubResource( 1 )

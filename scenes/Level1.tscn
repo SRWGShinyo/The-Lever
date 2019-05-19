@@ -13,12 +13,13 @@ script = ExtResource( 1 )
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 70, 600 )
+position = Vector2( 75.5867, 628.632 )
 
 [node name="Lever" parent="." instance=ExtResource( 4 )]
-position = Vector2( 430, 590 )
+position = Vector2( 444.665, 631.9 )
 
 [node name="Roof" parent="." instance=ExtResource( 5 )]
 
 [node name="BG" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 23.9873 )
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
