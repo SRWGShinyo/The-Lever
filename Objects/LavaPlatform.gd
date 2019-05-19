@@ -11,7 +11,3 @@ func _on_ClickableArea_clicked():
 		$Lava.hide()
 		$Rock.show()
 		MainTitleMusic.changeFxVolume($pschhh)
-	
-	elif !islava:
-		get_node("/root/globals").get_player().give_item("boulet")
-		queue_free()

@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/2-1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/WholeLevel2.gd" type="Script" id=2]
+[ext_resource path="res://Objects/WaterFountain.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/RockPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Seau.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Switch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Plateformwine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/LeafPlatform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=9]
+
+[node name="FilterHandler" index="0" instance=ExtResource( 1 )]
+
+[node name="WholeLevel" parent="." index="7"]
+script = ExtResource( 2 )
+
+[node name="Switch" parent="WholeLevel" index="0"]
+visible = false
+
+[node name="Telecommande" parent="WholeLevel" index="2"]
+visible = false
+
+[node name="WaterFountain" parent="WholeLevel/BG" index="3" groups=[
+"Blue",
+] instance=ExtResource( 3 )]
+position = Vector2( 315.088, 554.542 )
+
+[node name="RockPlatform" parent="WholeLevel/BG" index="4" groups=[
+"Red",
+] instance=ExtResource( 4 )]
+position = Vector2( 83.1081, 348.337 )
+
+[node name="Seau" parent="WholeLevel/BG" index="5" instance=ExtResource( 5 )]
+position = Vector2( 80.2441, 313.97 )
+
+[node name="RockPlatform2" parent="WholeLevel/BG" index="6" groups=[
+"Red",
+] instance=ExtResource( 4 )]
+position = Vector2( 675.527, 319.455 )
+
+[node name="Switch" parent="WholeLevel/BG" index="7" groups=[
+"Red",
+] instance=ExtResource( 6 )]
+position = Vector2( 772.972, 276.99 )
+rotation = 3.14159
+
+[node name="Up" parent="WholeLevel/BG/Switch" index="1"]
+position = Vector2( 70.91, -2.72913 )
+
+[node name="ClickableRoot" parent="WholeLevel/BG/Switch" index="3" groups=[
+"Red",
+]]
+position = Vector2( 55.1327, -19.507 )
+
+[node name="LeverRoot" parent="WholeLevel" index="4"]
+visible = false
+
+[node name="Plateformwine" parent="." index="8" groups=[
+"Green",
+] instance=ExtResource( 7 )]
+position = Vector2( 203.394, 506.708 )
+
+[node name="Plateformwine3" parent="." index="9" groups=[
+"Green",
+] instance=ExtResource( 7 )]
+position = Vector2( 393.896, 507.455 )
+
+[node name="Wine" parent="Plateformwine3" index="0"]
+visible = false
+
+[node name="LeafPlatform" parent="." index="10" groups=[
+"Green",
+] instance=ExtResource( 8 )]
+position = Vector2( 154.707, 583.181 )
+
+[node name="LeafPlatform3" parent="." index="11" groups=[
+"Green",
+] instance=ExtResource( 8 )]
+position = Vector2( 250, 500 )
+
+[node name="Leaf" parent="LeafPlatform3" index="0"]
+position = Vector2( 1.29236, 3.87708 )
+rotation = 3.14159
+
+[node name="CollisionShape2D" parent="LeafPlatform3/StaticBody2D" index="0"]
+position = Vector2( -0.211639, 2.16144 )
+
+[node name="LeafPlatform5" parent="." index="12" groups=[
+"Green",
+] instance=ExtResource( 8 )]
+position = Vector2( 640, 500 )
+
+[node name="LeverRoot" parent="." index="13" instance=ExtResource( 9 )]
+position = Vector2( 475.315, 631.521 )
+
+[node name="Plateformwine2" parent="." index="14" groups=[
+"Green",
+] instance=ExtResource( 7 )]
+position = Vector2( 583.873, 508.747 )
+
+[node name="LeafPlatform4" parent="." index="15" groups=[
+"Green",
+] instance=ExtResource( 8 )]
+position = Vector2( 532.179, 588.873 )
+[connection signal="clicked" from="LeverRoot" to="WholeLevel" method="_on_LeverRoot_clicked"]
+
+[editable path="BlackFilter"]
+
+[editable path="BlueButton"]
+
+[editable path="RedButton"]
+
+[editable path="GreenButton"]
+
+[editable path="WholeLevel/BG/Switch"]
+
+[editable path="WholeLevel/LeverRoot"]
+
+[editable path="Plateformwine3"]
+
+[editable path="LeafPlatform3"]
