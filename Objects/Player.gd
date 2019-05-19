@@ -31,6 +31,19 @@ func _physics_process(delta):
 	
 	old_velocity = velocity
 	velocity = move_and_slide(get_floor_velocity() + velocity)
+	
+	if not is_grounded():
+		$AnimatedSprite.play("Jump")
+	else:
+		if old_velocity.x > -0.1 and old_velocity.x < 0.1:
+			$AnimatedSprite.play("Idle")
+		else:
+			$AnimatedSprite.play("Walk")
+
+	if old_velocity.x > 0.1:
+		$AnimatedSprite.flip_h = false
+	elif old_velocity.x < -0.1:
+		$AnimatedSprite.flip_h = true
 
 func _process(delta):
 	if Input.is_action_pressed("PLAYER_JUMP") and is_grounded():
