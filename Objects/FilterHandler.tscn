@@ -58,7 +58,6 @@ mouse_filter = 2
 custom_styles/panel = SubResource( 3 )
 
 [node name="BlackFilter" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 position = Vector2( 44.2508, 42.3859 )
 scale = Vector2( 0.7, 0.7 )
 
@@ -104,7 +103,6 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" parent="GreenButton/ClickableArea" index="1"]
 shape = SubResource( 7 )
-[connection signal="tree_entered" from="." to="." method="_on_FilterHandler_tree_entered"]
 [connection signal="clicked" from="BlackFilter/ClickableArea" to="." method="_on_ClickableArea_clicked"]
 [connection signal="clicked" from="BlueButton/ClickableArea" to="." method="_on_ClickableBlueArea_clicked"]
 [connection signal="clicked" from="RedButton/ClickableArea" to="." method="_on_ClickableRedArea_clicked"]
