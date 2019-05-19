@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/sprites/os.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Rail.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Roof.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 20.0851, 19.7614 )
@@ -32,13 +33,11 @@ editor/display_folded = true
 position = Vector2( 43.0003, 404.003 )
 
 [node name="Dog" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( 330.352, 596.079 )
 
 [node name="Clickable" parent="Dog" index="0"]
 script = null
-
-[node name="AnimatedSprite" parent="Dog/Clickable/ClickableArea" index="1"]
-frame = 3
 
 [node name="CollisionShape2D" parent="Dog/Clickable/ClickableArea" index="2"]
 position = Vector2( 1.10416, 4.23267 )
@@ -62,6 +61,8 @@ shape = SubResource( 3 )
 
 [node name="Rail" parent="Rails" instance=ExtResource( 9 )]
 position = Vector2( 282.152, 563.436 )
+
+[node name="Roof" parent="." instance=ExtResource( 10 )]
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
 
 [editable path="Platform"]
