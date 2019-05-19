@@ -44,6 +44,18 @@ func _process(delta):
 		_loadAndhide("Green")
 	if blueNodes == null:
 		_loadAndhide("Blue")
+	
+	if !get_node("/root/globals").commandPickUp:
+		$BlackFilter.hide()
+		$RedButton.hide()
+		$BlueButton.hide()
+		$GreenButton.hide()
+	
+	else:
+		$BlackFilter.show()
+		$RedButton.show()
+		$BlueButton.show()
+		$GreenButton.show()
 
 func changeFilter(filterName):
 	_deactivateAll()
