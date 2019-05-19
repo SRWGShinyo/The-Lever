@@ -15,4 +15,6 @@ func _on_ClickableArea_clicked():
 		return
 	player.remove_item("seed")
 	seeded = true
+	frame = 0
+	stop()
 	

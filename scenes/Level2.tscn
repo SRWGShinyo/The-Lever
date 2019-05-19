@@ -48,15 +48,10 @@ editor/display_folded = true
 position = Vector2( 342.752, 627.618 )
 
 [node name="Hole" parent="Level1Root" instance=ExtResource( 7 )]
-editor/display_folded = true
 position = Vector2( 197.212, 652.591 )
 script = ExtResource( 8 )
 
 [node name="ClickableRoot" parent="Level1Root/Hole" instance=ExtResource( 9 )]
-editor/display_folded = true
-
-[node name="ClickableArea" parent="Level1Root/Hole/ClickableRoot" index="0"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Level1Root/Hole/ClickableRoot/ClickableArea" index="1"]
 position = Vector2( 0.237823, -4.99432 )
