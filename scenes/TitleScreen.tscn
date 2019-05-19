@@ -86,6 +86,7 @@ margin_left = 351.681
 margin_top = 544.265
 margin_right = 357.681
 margin_bottom = 702.265
+mouse_filter = 2
 custom_styles/panel = SubResource( 2 )
 
 [node name="LeverRoot" parent="CanvasLayer" instance=ExtResource( 4 )]
@@ -108,6 +109,7 @@ margin_left = 351.615
 margin_top = 321.747
 margin_right = 357.615
 margin_bottom = 705.747
+mouse_filter = 2
 custom_styles/panel = SubResource( 3 )
 
 [node name="Options" parent="." instance=ExtResource( 6 )]
@@ -121,6 +123,7 @@ margin_left = 81.0
 margin_top = 61.0
 margin_right = 88.0
 margin_bottom = 338.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 4 )
 
 [node name="cable2" type="Panel" parent="Options"]
@@ -128,6 +131,7 @@ margin_left = 83.0
 margin_top = 331.0
 margin_right = 275.0
 margin_bottom = 339.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 5 )
 
 [node name="CreditButton" parent="." instance=ExtResource( 7 )]
@@ -141,6 +145,7 @@ margin_left = 100.195
 margin_top = 59.0
 margin_right = 107.195
 margin_bottom = 337.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="cable2" type="Panel" parent="CreditButton"]
@@ -148,6 +153,7 @@ margin_left = -31.0
 margin_top = 329.0
 margin_right = 107.0
 margin_bottom = 336.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 7 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
