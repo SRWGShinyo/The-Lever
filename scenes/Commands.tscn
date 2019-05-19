@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Commands.gd" type="Script" id=1]
 [ext_resource path="res://resources/sprites/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
@@ -7,7 +7,43 @@
 [sub_resource type="DynamicFont" id=1]
 size = 70
 outline_size = 4
-outline_color = Color( 0.266667, 0.827451, 0.933333, 1 )
+outline_color = Color( 0.0705882, 0.745098, 0.870588, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 3
+outline_color = Color( 0.0705882, 0.745098, 0.870588, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 2
+outline_color = Color( 0.12549, 0.431373, 0.486275, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+outline_size = 3
+outline_color = Color( 0.0705882, 0.745098, 0.870588, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 2
+outline_color = Color( 0.12549, 0.431373, 0.486275, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+outline_size = 3
+outline_color = Color( 0.0705882, 0.745098, 0.870588, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 2
+outline_color = Color( 0.12549, 0.431373, 0.486275, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Commands" type="Control"]
@@ -24,7 +60,60 @@ text = "Instructions"
 align = 1
 valign = 1
 
+[node name="Click" type="Label" parent="."]
+margin_left = 2.72076
+margin_top = 138.758
+margin_right = 508.721
+margin_bottom = 188.758
+custom_fonts/font = SubResource( 2 )
+text = "Escape The Rooms"
+
+[node name="Click Text" type="Label" parent="Click"]
+margin_left = 20.4057
+margin_top = 61.2169
+margin_right = 647.406
+margin_bottom = 92.2169
+custom_fonts/font = SubResource( 3 )
+text = "In The Lever, your goal is to progress towards each room.
+Solve enigmas and then click the Lever ! 
+If you solved everything, up you go ! But if you didn't..."
+
+[node name="Interact" type="Label" parent="."]
+margin_left = 2.721
+margin_top = 322.409
+margin_right = 657.721
+margin_bottom = 372.409
+custom_fonts/font = SubResource( 4 )
+text = "Interact with the environment"
+
+[node name="Interact Text" type="Label" parent="Interact"]
+margin_left = 20.406
+margin_top = 55.775
+margin_right = 675.406
+margin_bottom = 139.775
+custom_fonts/font = SubResource( 5 )
+text = "You can Interact with the items in the room. A clickable item
+will change the appearance of the mouse.
+Go near one and click to interact...that could help you out !"
+
+[node name="EasterEgg" type="Label" parent="."]
+margin_left = 2.721
+margin_top = 482.934
+margin_right = 255.721
+margin_bottom = 532.934
+custom_fonts/font = SubResource( 6 )
+text = "Easter Eggs"
+
+[node name="EasterEgg Text" type="Label" parent="EasterEgg"]
+margin_left = 20.406
+margin_top = 61.217
+margin_right = 540.406
+margin_bottom = 87.217
+custom_fonts/font = SubResource( 7 )
+text = "The only thing this game lacks are easter eggs..."
+
 [node name="LeverRoot" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 357.779, 674.747 )
 [connection signal="clicked" from="LeverRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
 
