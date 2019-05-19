@@ -37,7 +37,6 @@ loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
