@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/FilterHandler.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0, 0, 0.172549 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 1, 0, 0.172549 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 1, 0.172549 )
+
+[node name="FilterHandler" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RedFilter" type="Panel" parent="." groups=[
+"Red",
+]]
+margin_right = 720.0
+margin_bottom = 720.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="GreenFilter" type="Panel" parent="." groups=[
+"Green",
+]]
+margin_right = 720.0
+margin_bottom = 720.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+
+[node name="BlueFilter" type="Panel" parent="." groups=[
+"Blue",
+]]
+margin_right = 720.0
+margin_bottom = 720.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="BlackFilter" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 44.2508, 42.3859 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="BlueButton" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 159.606, 42.9709 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="RedButton" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 101.902, 42.9709 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="GreenButton" parent="." instance=ExtResource( 2 )]
+position = Vector2( 217.31, 42.9709 )
+scale = Vector2( 0.7, 0.7 )
+[connection signal="tree_entered" from="." to="." method="_on_FilterHandler_tree_entered"]
+[connection signal="clicked" from="BlackFilter/ClickableArea" to="." method="_on_ClickableArea_clicked"]
+[connection signal="clicked" from="BlueButton/ClickableArea" to="." method="_on_ClickableBlueArea_clicked"]
+[connection signal="clicked" from="RedButton/ClickableArea" to="." method="_on_ClickableRedArea_clicked"]
+[connection signal="clicked" from="GreenButton/ClickableArea" to="." method="_on_ClickableGreenArea_clicked"]
+
+[editable path="BlackFilter"]
+
+[editable path="BlueButton"]
+
+[editable path="RedButton"]
+
+[editable path="GreenButton"]
