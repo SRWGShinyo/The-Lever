@@ -10,7 +10,7 @@ func _on_Hole_animation_finished():
 func _on_ClickableArea_clicked():
 	if not hole_dug:
 		return
-	var player: Player = $"/root/globals".get_player()
+	var player = $"/root/globals".get_player()
 	if not player.has_item("seed"):
 		return
 	player.remove_item("seed")
