@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/BrickBreakRight.gd" type="Script" id=1]
+[ext_resource path="res://resources/sprites/Brick/brickW2.png" type="Texture" id=2]
+[ext_resource path="res://resources/sprites/Brick/Brickcasséw2Face2.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.8448, 12.6658 )
+
+[node name="BrickBreakRight" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Intact" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Break" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )

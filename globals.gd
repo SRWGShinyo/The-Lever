@@ -3,6 +3,22 @@ extends Node
 var fadePanelModel = preload("res://UI/FadePanel.tscn")
 var fadePanel: AnimationPlayer = null
 
+var displayBlue = false
+var displayGreen = false
+var displayRed = false
+
+var commandPickUp = false
+
+func displayProperPanel(lvl):
+	if lvl == "1":
+		displayBlue = true
+	
+	if lvl == "2":
+		displayGreen = true
+	
+	if lvl == "3":
+		displayRed = true
+
 func getFadePanel():
 	if fadePanel == null:
 		fadePanel = fadePanelModel.instance()
