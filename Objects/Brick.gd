@@ -7,9 +7,6 @@ onready var player : AnimatedSprite = get_node("AnimatedSprite")
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
-	onHit()
-
 func onHit():
 	if state == 0:
 		player.play("hit")
