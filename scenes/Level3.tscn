@@ -37,7 +37,7 @@ position = Vector2( 543.065, 0.21701 )
 offset = 1110.15
 
 [node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="0"]
-frame = 2
+frame = 1
 
 [node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
 editor/display_folded = true
@@ -48,7 +48,7 @@ editor/display_folded = true
 position = Vector2( 3.0652, 0.21701 )
 
 [node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
-frame = 1
+frame = 0
 
 [node name="Hole" parent="Level2Root/Level1Root" index="11"]
 visible = false

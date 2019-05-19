@@ -1,7 +1,7 @@
 extends Node2D
 
 var target := Vector2.INF
-onready var animator := null
+onready var animator: AnimatedSprite = null
 var has_bone := false
 var hole_sprite: AnimatedSprite = null
 
@@ -42,11 +42,13 @@ func _on_ClickableArea_clicked():
 
 func _on_AnimatedSprite_animation_finished():
 	animator = $"./Clickable/ClickableArea/AnimatedSprite"
-	if animator.animation == "Pet" or animator.animation == "Dig":
+	if animator.animation == "Pet" or (animator.animation == "Walk" and not has_bone):
 		animator.play("Idle")
+	elif animator.animation == "Dig":
+		target.x += 50
 
 func _process(delta):
-	if not is_at_target():
+	if not self.is_at_target():
 		animator.play("Walk")
 		if target.x < position.x:
 			position += Vector2(-SPEED * delta, 0)
@@ -58,3 +60,5 @@ func _process(delta):
 		animator.play("Dig")
 		has_bone = false
 		hole_sprite.play("Dig")
+	elif animator != null and animator.animation == "Walk":
+		animator.play("Idle")

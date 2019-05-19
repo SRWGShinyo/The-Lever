@@ -1,4 +1,5 @@
 extends Node2D
 
 func _ready():
-	pass
+	if not $"/root/globals".keep_dog:
+		$Dog.queue_free()
