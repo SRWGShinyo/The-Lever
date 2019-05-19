@@ -1,22 +1,22 @@
 extends KinematicBody2D
 
-var old_velocity = Vector2(0, 0)
-var velocity = Vector2(0, 0)
-const MAX_SPEED = 60
-const gravity = 3
-const JUMP_STRENGTH = 120
+var velocity := Vector2()
+
+var last_is_on_floor = false
+
+const MAX_SPEED = 140
+const gravity = 10
+const JUMP_STRENGTH = 360
+const DAMPENING: float = 0.7
 
 func _ready():
 	pass
 	
 func dampen(val: float, target: float) -> float:
-	return target - (target - val) * 0.7
+	return target - (target - val) * DAMPENING
 
 func moving() -> bool:
 	return Input.is_action_pressed("PLAYER_RIGHT") != Input.is_action_pressed("PLAYER_LEFT")
-
-func is_grounded() -> bool:
-	return old_velocity.y > 0 and velocity.y < old_velocity.y
 
 func _physics_process(delta):
 	if moving():
@@ -28,23 +28,23 @@ func _physics_process(delta):
 		velocity.x = dampen(velocity.x, 0)
 	
 	velocity.y += gravity
+		
+	if Input.is_action_pressed("PLAYER_JUMP") and is_on_floor():
+		velocity.y = -JUMP_STRENGTH
 	
-	old_velocity = velocity
-	velocity = move_and_slide(get_floor_velocity() + velocity)
+	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
-	if not is_grounded():
+	if not last_is_on_floor or not is_on_floor():
 		$AnimatedSprite.play("Jump")
 	else:
-		if old_velocity.x > -0.1 and old_velocity.x < 0.1:
+		if velocity.x > -0.1 and velocity.x < 0.1:
 			$AnimatedSprite.play("Idle")
 		else:
 			$AnimatedSprite.play("Walk")
+			
+	last_is_on_floor = is_on_floor()
 
-	if old_velocity.x > 0.1:
+	if velocity.x > 0.1:
 		$AnimatedSprite.flip_h = false
-	elif old_velocity.x < -0.1:
+	elif velocity.x < -0.1:
 		$AnimatedSprite.flip_h = true
-
-func _process(delta):
-	if Input.is_action_pressed("PLAYER_JUMP") and is_grounded():
-		velocity.y = -JUMP_STRENGTH
