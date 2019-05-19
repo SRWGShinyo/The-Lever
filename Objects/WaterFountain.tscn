@@ -11,8 +11,6 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
-
-
 func _on_ClickableArea_clicked():
 	if get_node(\"/root/globals\").get_player().has_item(\"seau\"):
 		MainTitleMusic.changeFxVolume($Fill)
@@ -39,7 +37,6 @@ script = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 3
 playing = true
 
 [node name="ClickableRoot" parent="." instance=ExtResource( 6 )]
