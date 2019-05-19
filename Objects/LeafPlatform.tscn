@@ -2,8 +2,8 @@
 
 [ext_resource path="res://resources/sprites/wines/platformplantW2.png" type="Texture" id=1]
 
-[sub_resource type="CapsuleShape2D" id=1]
-height = 70.8191
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 47.0415, 10 )
 
 [node name="LeafPlatform" type="Node2D"]
 
@@ -15,6 +15,7 @@ collision_layer = 5
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1.08072, 2.16144 )
-rotation = 1.5708
+position = Vector2( 1.6355, 1.32927 )
 shape = SubResource( 1 )
+one_way_collision = true
+one_way_collision_margin = 0.0

@@ -9,3 +9,12 @@ func burn():
 	MainTitleMusic.changeFxVolume($Burn)
 	$Earth.show()
 	$Wine.hide()
+
+func _on_ClickableArea_clicked():
+	if get_node("/root/globals").get_player().has_item("seau_eau"):
+		get_node("/root/globals").get_player().remove_item("seau_eau")
+		grow()
+		
+	if get_node("/root/globals").get_player().has_item("seau_lave"):
+		get_node("/root/globals").get_player().remove_item("seau_lave")
+		grow()
