@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Level4.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level5.gd" type="Script" id=2]
 [ext_resource path="res://resources/sprites/Plant/planteadulte.png" type="Texture" id=3]
+[ext_resource path="res://Objects/BreakerBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/BreakerBar.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 0, 0 )
@@ -20,13 +22,24 @@ editor/display_folded = true
 [node name="Platform2" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="8"]
 visible = false
 
+[node name="Platform" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="9"]
+editor/display_folded = true
+
 [node name="Path2D" parent="Level4Root/Level3Root/Level2Root/Level1Root/Platform" index="0"]
+editor/display_folded = true
 can_go_left = false
 can_go_right = false
 can_go_down = false
 can_go_up = false
 
+[node name="PathFollow2D" parent="Level4Root/Level3Root/Level2Root/Level1Root/Platform/Path2D" index="0"]
+position = Vector2( 203.065, 285.877 )
+offset = 484.71
+
 [node name="Hole" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="11"]
+editor/display_folded = true
+
+[node name="Plant" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="12"]
 editor/display_folded = true
 
 [node name="ClickableArea" parent="Level4Root/Level3Root/Level2Root/Level1Root/Plant" index="0"]
@@ -39,6 +52,9 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" parent="Level4Root/Level3Root/Level2Root/Level1Root/Plant/ClickableArea" index="1"]
 shape = SubResource( 1 )
 
+[node name="BreakerBar" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="17" instance=ExtResource( 4 )]
+script = ExtResource( 5 )
+
 [editable path="Level4Root"]
 
 [editable path="Level4Root/Level3Root"]
@@ -50,3 +66,5 @@ shape = SubResource( 1 )
 [editable path="Level4Root/Level3Root/Level2Root/Level1Root/Platform"]
 
 [editable path="Level4Root/Level3Root/Level2Root/Level1Root/Plant"]
+
+[editable path="Level4Root/Level3Root/Level2Root/Level1Root/BreakerBar"]

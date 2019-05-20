@@ -11,4 +11,4 @@ func _ready():
 
 func _on_Lever_clicked():
 	if not $"../Level1Root/Platform2/Path2D".attached:
-		$Lever.set_scene_to_load("res://scenes/Level5.tscn")
+		$Lever.set_scene_to_load("res://scenes/2-1.tscn")
