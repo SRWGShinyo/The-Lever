@@ -21,14 +21,10 @@ editor/display_folded = true
 visible = false
 
 [node name="Path2D" parent="Level4Root/Level3Root/Level2Root/Level1Root/Platform" index="0"]
-editor/display_folded = false
 can_go_left = false
 can_go_right = false
 can_go_down = false
 can_go_up = false
-
-[node name="AnimatedSprite" parent="Level4Root/Level3Root/Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 0
 
 [node name="Hole" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = true

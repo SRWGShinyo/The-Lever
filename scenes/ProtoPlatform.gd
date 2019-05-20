@@ -116,7 +116,7 @@ func contained(x: float, a: float, b: float) -> bool:
 		return x >= a or x <= b
 
 func _on_Area2D_body_entered(body):
-	if body != $PathFollow2D/KinematicBody2D and body.get_collision_layer_bit(4): # is another platform
+	if body != $PathFollow2D/KinematicBody2D and body.get_collision_layer_bit(3): # is another platform
 		go_to_point(last_point)
 		emit_signal("crash")
 		if can_fall:

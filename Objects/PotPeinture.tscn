@@ -2,16 +2,16 @@
 
 [ext_resource path="res://Objects/PotPeinture.gd" type="Script" id=1]
 [ext_resource path="res://resources/sprites/Paint/peinture.png" type="Texture" id=2]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_1.png" type="Texture" id=3]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_2.png" type="Texture" id=4]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_3.png" type="Texture" id=5]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_4.png" type="Texture" id=6]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_5.png" type="Texture" id=7]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_6.png" type="Texture" id=8]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_7.png" type="Texture" id=9]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_8.png" type="Texture" id=10]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_9.png" type="Texture" id=11]
-[ext_resource path="res://resources/sprites/Paint/peintureoups_10.png" type="Texture" id=12]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_10.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_1.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_2.png" type="Texture" id=5]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_3.png" type="Texture" id=6]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_4.png" type="Texture" id=7]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_5.png" type="Texture" id=8]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_6.png" type="Texture" id=9]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_7.png" type="Texture" id=10]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_8.png" type="Texture" id=11]
+[ext_resource path="res://resources/sprites/Paint/peintureoups_9.png" type="Texture" id=12]
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=13]
 [ext_resource path="res://resources/SE/Painting Drop.wav" type="AudioStream" id=14]
 
@@ -22,7 +22,12 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "dropped",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "drop",
 "speed": 16.0

@@ -37,6 +37,7 @@ func _on_ClickableArea_clicked():
 		has_bone = true
 	elif animator.animation == "Idle" and is_at_target():
 		animator.play("Pet")
+		$"/root/globals".keep_dog = true
 		if player != null:
 			animator.flip_h = player.position.x < position.x
 

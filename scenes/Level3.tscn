@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Level2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level3.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/BabyPlant.gd" type="Script" id=7]
 [ext_resource path="res://resources/sprites/Plant/bébéplant.png" type="Texture" id=8]
+[ext_resource path="res://Objects/PotPeinture.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.006, 12.3409 )
@@ -24,17 +25,14 @@ position = Vector2( 330, 299.783 )
 region_rect = Rect2( -20.25, 0, 8.14, 181.23 )
 
 [node name="Platform2" parent="Level2Root/Level1Root" index="8" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 600, 300 )
 
 [node name="Path2D" parent="Level2Root/Level1Root/Platform2" index="0"]
-editor/display_folded = true
 position = Vector2( -546.537, 0 )
 curve = ExtResource( 4 )
 can_go_down = false
 
 [node name="PathFollow2D" parent="Level2Root/Level1Root/Platform2/Path2D" index="0"]
-editor/display_folded = true
 position = Vector2( 543.065, 0.21701 )
 offset = 1110.15
 
@@ -49,19 +47,20 @@ editor/display_folded = true
 [node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
 editor/display_folded = true
 
-[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 2
+[node name="Platform" parent="Level2Root/Level1Root" index="9"]
+editor/display_folded = false
 
 [node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
-editor/display_folded = true
 curve = ExtResource( 4 )
 
 [node name="PathFollow2D" parent="Level2Root/Level1Root/Platform/Path2D" index="0"]
-editor/display_folded = true
 position = Vector2( 3.0652, 0.21701 )
 
+[node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
+editor/display_folded = true
+
 [node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 1
+frame = 2
 
 [node name="Hole" parent="Level2Root/Level1Root" index="11"]
 visible = false
@@ -87,6 +86,10 @@ visible = false
 
 [node name="Bone" parent="Level2Root/Level1Root" index="14"]
 visible = false
+
+[node name="PotPeinture" parent="Level2Root/Level1Root" index="15" instance=ExtResource( 9 )]
+position = Vector2( 30, 637.303 )
+scale = Vector2( -1, 1 )
 [connection signal="clicked" from="Level2Root/Level1Root/Plant/ClickableArea" to="Level2Root/Level1Root/Plant" method="_on_plant_clicked"]
 
 [editable path="Level2Root"]
@@ -104,3 +107,5 @@ visible = false
 [editable path="Level2Root/Level1Root/Platform"]
 
 [editable path="Level2Root/Level1Root/Plant"]
+
+[editable path="Level2Root/Level1Root/PotPeinture"]

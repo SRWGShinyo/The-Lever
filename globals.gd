@@ -12,6 +12,7 @@ var displayRed = false
 var commandPickUp = false
 
 var keep_dog := false
+var keep_paint := false
 
 func displayProperPanel(lvl):
 	if lvl == "1":
