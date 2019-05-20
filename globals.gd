@@ -9,6 +9,7 @@ var displayBlue = false
 var displayGreen = false
 var displayRed = false
 
+var numberPotFilled = 0
 var commandPickUp = false
 
 var keep_dog := false

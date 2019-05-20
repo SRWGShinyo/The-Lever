@@ -8,17 +8,17 @@
 [ext_resource path="res://Objects/Switch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Plateformwine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/LeafPlatform.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/GrassType.tscn" type="PackedScene" id=9]
 
 [node name="FilterHandler" index="0" instance=ExtResource( 1 )]
 
 [node name="WholeLevel" parent="." index="7"]
 script = ExtResource( 2 )
 
-[node name="Switch" parent="WholeLevel" index="0"]
+[node name="Switch" parent="WholeLevel" index="1"]
 visible = false
 
-[node name="Telecommande" parent="WholeLevel" index="2"]
+[node name="Telecommande" parent="WholeLevel" index="3"]
 visible = false
 
 [node name="WaterFountain" parent="WholeLevel/BG" index="3" groups=[
@@ -44,6 +44,7 @@ position = Vector2( 675.527, 319.455 )
 ] instance=ExtResource( 6 )]
 position = Vector2( 772.972, 276.99 )
 rotation = 3.14159
+nam = "Green"
 
 [node name="Up" parent="WholeLevel/BG/Switch" index="1"]
 position = Vector2( 70.91, -2.72913 )
@@ -53,7 +54,7 @@ position = Vector2( 70.91, -2.72913 )
 ]]
 position = Vector2( 55.1327, -19.507 )
 
-[node name="LeverRoot" parent="WholeLevel" index="4"]
+[node name="LeverRoot" parent="WholeLevel" index="5"]
 visible = false
 
 [node name="Plateformwine" parent="." index="8" groups=[
@@ -91,19 +92,18 @@ position = Vector2( -0.211639, 2.16144 )
 ] instance=ExtResource( 8 )]
 position = Vector2( 640, 500 )
 
-[node name="LeverRoot" parent="." index="13" instance=ExtResource( 9 )]
-position = Vector2( 475.315, 631.521 )
-
-[node name="Plateformwine2" parent="." index="14" groups=[
+[node name="Plateformwine2" parent="." index="13" groups=[
 "Green",
 ] instance=ExtResource( 7 )]
 position = Vector2( 583.873, 508.747 )
 
-[node name="LeafPlatform4" parent="." index="15" groups=[
+[node name="LeafPlatform4" parent="." index="14" groups=[
 "Green",
 ] instance=ExtResource( 8 )]
 position = Vector2( 532.179, 588.873 )
-[connection signal="clicked" from="LeverRoot" to="WholeLevel" method="_on_LeverRoot_clicked"]
+
+[node name="GrassType" parent="." index="15" instance=ExtResource( 9 )]
+position = Vector2( 364.172, 322.647 )
 
 [editable path="BlackFilter"]
 

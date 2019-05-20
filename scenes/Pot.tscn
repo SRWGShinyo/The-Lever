@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Pot.gd" type="Script" id=1]
+[ext_resource path="res://resources/sprites/Seaux/Potvide.png" type="Texture" id=2]
+[ext_resource path="res://resources/sprites/Seaux/Poteau.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/SE/WaterPouring.wav" type="AudioStream" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 9.56418
+height = 7.77425
+
+[node name="Pot" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="PotVide" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="PotPlein" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="ClickableRoot" parent="." instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="ClickableRoot/ClickableArea" index="1"]
+position = Vector2( -0.71698, 2.50941 )
+shape = SubResource( 1 )
+
+[node name="Pour" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -14.0
+[connection signal="clicked" from="ClickableRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
+
+[editable path="ClickableRoot"]

@@ -15,6 +15,7 @@ func _on_ClickableArea_clicked():
 	emit_signal("clicked")
 
 func _animation_finished(anim_name: String):
+	print("enter finish !")
 	var fadePanel: AnimationPlayer = get_node("/root/globals").getFadePanel()
 	if anim_name == "Fade":
 		get_tree().change_scene(scene_to_load)

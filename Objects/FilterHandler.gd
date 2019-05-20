@@ -25,20 +25,14 @@ func _loadAndhide(grpID):
 
 func _deactivateAll():
 	for elem in greenNodes:
-		if elem.get_node("CollisionShape2D") != null:
-			elem.get_node("CollisionShape2D").set_trigger(false)
 		elem.set_process(false)
 		elem.hide()
 
 	for elem in blueNodes:
-		if elem.get_node("CollisionShape2D") != null:
-			elem.get_node("CollisionShape2D").set_trigger(false)
 		elem.set_process(false)
 		elem.hide()
 		
 	for elem in redNodes:
-		if elem.get_node("CollisionShape2D") != null:
-			elem.get_node("CollisionShape2D").set_trigger(false)
 		elem.set_process(false)
 		elem.hide()
 
@@ -67,22 +61,16 @@ func changeFilter(filterName):
 	_deactivateAll()
 	if filterName == "Red":
 		for elem in redNodes:
-			if elem.get_node("CollisionShape2D") != null:
-				elem.get_node("CollisionShape2D").set_trigger(true)
 			elem.set_process(true)
 			elem.show()
 
 	if filterName == "Green":
 		for elem in greenNodes:
-			if elem.get_node("CollisionShape2D") != null:
-				elem.get_node("CollisionShape2D").set_trigger(true)
 			elem.set_process(true)
 			elem.show()
 
 	if filterName == "Blue":
 		for elem in blueNodes:
-			if elem.get_node("CollisionShape2D") != null:
-				elem.get_node("CollisionShape2D").set_trigger(true)
 			elem.set_process(true)
 			elem.show()
 
