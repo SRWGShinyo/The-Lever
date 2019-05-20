@@ -17,6 +17,7 @@ position = Vector2( 75.5867, 628.632 )
 
 [node name="Lever" parent="." instance=ExtResource( 4 )]
 position = Vector2( 444.665, 633.652 )
+white = true
 
 [node name="Roof" parent="." instance=ExtResource( 5 )]
 

@@ -4,6 +4,7 @@ extends Node2D
 func put_down(force_instant = false):
 	$"../PotPeinture/ClickableRoot".hide()
 	if force_instant:
+		$AnimatedSprite.set_offset(Vector2(-33, -32))
 		$AnimatedSprite.play("dropped")
 		
 

@@ -36,6 +36,7 @@ func _on_ClickableArea_clicked():
 		target = hole_sprite.position
 		has_bone = true
 	elif animator.animation == "Idle" and is_at_target():
+		_playRandomBark()
 		animator.play("Pet")
 		$"/root/globals".keep_dog = true
 		if player != null:

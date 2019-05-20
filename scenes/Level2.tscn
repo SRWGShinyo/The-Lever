@@ -65,7 +65,7 @@ position = Vector2( 56.9348, 299.783 )
 curve = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 2
+frame = 1
 
 [node name="Dog" parent="Level1Root" instance=ExtResource( 7 )]
 editor/display_folded = true
