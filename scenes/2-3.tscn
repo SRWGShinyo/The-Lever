@@ -29,7 +29,22 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, -2.10522, 0, 0, 0, 0, 0, -344.211 )
 }
 
-[node name="FilterHandler" instance=ExtResource( 1 )]
+[node name="FilterHandler" index="0" instance=ExtResource( 1 )]
+
+[node name="BlackFilter" parent="." index="3"]
+editor/display_folded = true
+
+[node name="ClickableArea" parent="BlackFilter" index="0"]
+distance_check = false
+
+[node name="ClickableArea" parent="BlueButton" index="0"]
+distance_check = false
+
+[node name="ClickableArea" parent="RedButton" index="0"]
+distance_check = false
+
+[node name="ClickableArea" parent="GreenButton" index="0"]
+distance_check = false
 
 [node name="WholeLevel" type="Node2D" parent="." index="7"]
 script = ExtResource( 2 )
@@ -44,6 +59,7 @@ position = Vector2( 694.408, 555.124 )
 position = Vector2( 258.07, 557.261 )
 
 [node name="LeverRoot" parent="WholeLevel" index="3" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 359.854, 633.137 )
 
 [node name="BG" parent="WholeLevel" index="4" instance=ExtResource( 6 )]
@@ -96,6 +112,7 @@ position = Vector2( 387.101, 381.201 )
 [node name="LavaPlatform3" parent="." index="11" groups=[
 "Red",
 ] instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 175.489, 238.066 )
 
 [node name="RockPlatform2" parent="." index="12" groups=[
@@ -112,6 +129,7 @@ position = Vector2( 276.156, 238.066 )
 "Red",
 ] instance=ExtResource( 12 )]
 position = Vector2( 71.4122, 207.467 )
+item_neded = "seau_lave"
 
 [node name="Pot2" parent="." index="15" instance=ExtResource( 12 )]
 position = Vector2( 657.735, 635.725 )
@@ -156,5 +174,7 @@ flip_h = true
 [editable path="LavaPlatform"]
 
 [editable path="LavaPlatform2"]
+
+[editable path="LavaPlatform3"]
 
 [editable path="Switch"]

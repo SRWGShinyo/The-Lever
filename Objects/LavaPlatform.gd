@@ -10,5 +10,5 @@ func _on_ClickableArea_clicked():
 		islava = false
 		$Path2D/PathFollow2D/Lava.hide()
 		$Path2D/PathFollow2D/Rock.show()
-		$Path2D/PathFollow2D/Rock/KinematicBody2D/CollisionShape2D.set_disabled(false)
+		$Path2D/PathFollow2D/KinematicBody2D/CollisionShape2D.set_disabled(false)
 		MainTitleMusic.changeFxVolume($pschhh)

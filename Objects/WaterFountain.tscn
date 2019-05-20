@@ -12,14 +12,13 @@
 script/source = "extends Node2D
 
 func _on_ClickableArea_clicked():
-	if get_node(\"/root/globals\").get_player().has_item(\"seau\"):
-		MainTitleMusic.changeFxVolume($Fill)
-		print(\"water !\")
-		if get_node(\"/root/globals\").get_player().has_item(\"seau_lave\"):
-			get_node(\"/root/globals\").get_player().remove_item(\"seau_lave\")
-		if get_node(\"/root/globals\").get_player().has_item(\"seau_eau\"):
-			pass
-		get_node(\"/root/globals\").get_player().give_item(\"seau_eau\")
+	MainTitleMusic.changeFxVolume($Fill)
+	print(\"water !\")
+	if get_node(\"/root/globals\").get_player().has_item(\"seau_lave\"):
+		get_node(\"/root/globals\").get_player().remove_item(\"seau_lave\")
+	if get_node(\"/root/globals\").get_player().has_item(\"seau_eau\"):
+		pass
+	get_node(\"/root/globals\").get_player().give_item(\"seau_eau\")
 "
 
 [sub_resource type="SpriteFrames" id=2]
@@ -38,6 +37,7 @@ script = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="ClickableRoot" parent="." instance=ExtResource( 6 )]

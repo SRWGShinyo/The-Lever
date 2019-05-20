@@ -10,7 +10,7 @@ var displayGreen = false
 var displayRed = false
 
 var numberPotFilled = 0
-var commandPickUp = false
+var commandPickUp = true
 
 var keep_dog := false
 var keep_paint := false
