@@ -1,5 +1,7 @@
 extends Node2D
 
+export var nam : String
+
 var is_down = false
 
 
@@ -15,4 +17,9 @@ func _on_ClickableArea_clicked():
 		$Down.hide()
 		is_down = false
 
-	$"/root/globals".displayProperPanel("1")
+	if (nam == "Blue"):
+		$"/root/globals".displayProperPanel("1")
+	if (nam == "Green"):
+		$"/root/globals".displayProperPanel("2")
+	if (nam=="Red"):
+		$"/root/globals".displayProperPanel("3")
