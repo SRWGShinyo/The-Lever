@@ -50,8 +50,9 @@ func _physics_process(delta):
 	if not last_is_on_floor and not is_on_floor():
 		$AnimatedSprite.play("Jump")
 	else:
-		if velocity.x > -0.1 and velocity.x < 0.1:
-			$AnimatedSprite.play("Idle")
+		if velocity.x > -1 and velocity.x < 1:
+			if $AnimatedSprite.animation != "Interact":
+				$AnimatedSprite.play("Idle")
 		else:
 			$AnimatedSprite.play("Walk")
 			
@@ -65,3 +66,7 @@ func _physics_process(delta):
 
 func _on_Bone_bone_found():
 	give_item("bone")
+
+
+func interact():
+	$AnimatedSprite.play("Interact")

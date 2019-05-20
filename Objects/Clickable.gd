@@ -19,6 +19,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 		if not can_click(event):
 			return
 		if event.button_index == BUTTON_LEFT and event.is_pressed():
+			$"/root/globals".get_player().interact()
 			emit_signal("clicked")
 
 func _on_ClickableArea_mouse_entered():
