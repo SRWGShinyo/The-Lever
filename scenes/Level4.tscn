@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Level3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level4.gd" type="Script" id=2]
 [ext_resource path="res://resources/sprites/Plant/Planteado.png" type="Texture" id=3]
+[ext_resource path="res://Objects/PotAuFeu.tscn" type="PackedScene" id=4]
 
 [node name="Level4Root" type="Node2D"]
 
@@ -12,14 +13,10 @@
 script = ExtResource( 2 )
 
 [node name="Platform2" parent="Level3Root/Level2Root/Level1Root" index="8"]
-editor/display_folded = false
+editor/display_folded = true
 
 [node name="Path2D" parent="Level3Root/Level2Root/Level1Root/Platform2" index="0"]
-editor/display_folded = false
 can_fall = true
-
-[node name="PathFollow2D" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D" index="0"]
-editor/display_folded = false
 
 [node name="WaterBucket" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="0"]
 visible = false
@@ -28,7 +25,7 @@ visible = false
 editor/display_folded = false
 
 [node name="AnimatedSprite" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 3
+frame = 2
 
 [node name="Hole" parent="Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = false
@@ -39,6 +36,9 @@ editor/display_folded = false
 [node name="Sprite" parent="Level3Root/Level2Root/Level1Root/Plant/ClickableArea" index="0"]
 position = Vector2( 0, -96.0085 )
 texture = ExtResource( 3 )
+
+[node name="PotAuFeu" parent="Level3Root/Level2Root/Level1Root" index="16" instance=ExtResource( 4 )]
+position = Vector2( 660.455, 637.425 )
 
 [editable path="Level3Root"]
 

@@ -4,6 +4,9 @@ func _ready():
 	if not $"/root/globals".keep_dog:
 		$Dog.queue_free()
 		
+	if not $"/root/globals".keep_food:
+		$PotAuFeu.queue_free()
+		
 	if not $"/root/globals".keep_paint:
 		$PotPeinture.queue_free()
 	else:
