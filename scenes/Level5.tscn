@@ -36,6 +36,9 @@ can_go_up = false
 position = Vector2( 203.065, 285.877 )
 offset = 484.71
 
+[node name="AnimatedSprite" parent="Level4Root/Level3Root/Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 3
+
 [node name="Hole" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = true
 
@@ -54,6 +57,10 @@ shape = SubResource( 1 )
 
 [node name="BreakerBar" parent="Level4Root/Level3Root/Level2Root/Level1Root" index="17" instance=ExtResource( 4 )]
 script = ExtResource( 5 )
+
+[node name="PathFollow2D" parent="Level4Root/Level3Root/Level2Root/Level1Root/BreakerBar" index="0"]
+editor/display_folded = true
+loop = false
 
 [editable path="Level4Root"]
 
