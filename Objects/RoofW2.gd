@@ -18,3 +18,7 @@ func destroyRoof():
 	
 	for elem in brickRight:
 		elem.brkr()
+		
+func _process(delta):
+	if $"/root/globals".isCannonFired:
+		destroyRoof()

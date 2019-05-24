@@ -8,3 +8,5 @@ extends Node2D
 func _process(delta):
 	if get_node("/root/globals").displayGreen == false:
 		self.hide()
+	else:
+		self.show()

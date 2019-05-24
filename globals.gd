@@ -2,6 +2,8 @@ extends Node
 
 var inventory := {}
 
+var isCannonFired = false;
+
 var fadePanelModel = preload("res://UI/FadePanel.tscn")
 var fadePanel: AnimationPlayer = null
 

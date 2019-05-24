@@ -7,3 +7,5 @@ extends Node2D
 func _process(delta):
 	if get_node("/root/globals").displayRed == false:
 		self.hide()
+	else:
+		self.show()

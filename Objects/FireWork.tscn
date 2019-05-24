@@ -1,0 +1,68 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Objects/FireWork.gd" type="Script" id=1]
+[ext_resource path="res://resources/SE/FireWorkkk.wav" type="AudioStream" id=2]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_1.png" type="Texture" id=3]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_2.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_3.png" type="Texture" id=5]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_4.png" type="Texture" id=6]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_5.png" type="Texture" id=7]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_6.png" type="Texture" id=8]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_8.png" type="Texture" id=9]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_7.png" type="Texture" id=10]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_9.png" type="Texture" id=11]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_10.png" type="Texture" id=12]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_11.png" type="Texture" id=13]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_12.png" type="Texture" id=14]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_13.png" type="Texture" id=15]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_14.png" type="Texture" id=16]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_15.png" type="Texture" id=17]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_16.png" type="Texture" id=18]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_17.png" type="Texture" id=19]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_18.png" type="Texture" id=20]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_19.png" type="Texture" id=21]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_21.png" type="Texture" id=22]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_22.png" type="Texture" id=23]
+[ext_resource path="res://resources/sprites/FireWorks/Fireworksboom_23.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Clickable.tscn" type="PackedScene" id=25]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "explode",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.14914, 15.2933 )
+
+[node name="FireWork" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -12.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="ClickableRoot" parent="." instance=ExtResource( 25 )]
+
+[node name="ClickableArea" parent="ClickableRoot" index="0" groups=[
+"Red",
+]]
+
+[node name="CollisionShape2D" parent="ClickableRoot/ClickableArea" index="1"]
+position = Vector2( 0, 45 )
+shape = SubResource( 2 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="clicked" from="ClickableRoot/ClickableArea" to="." method="_on_ClickableArea_clicked"]
+
+[editable path="ClickableRoot"]

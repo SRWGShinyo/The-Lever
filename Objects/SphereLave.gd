@@ -14,4 +14,4 @@ func _on_ClickableArea_clicked():
 	
 	elif !islava:
 		get_node("/root/globals").get_player().give_item("boulet")
-		queue_free()
+		hide()
