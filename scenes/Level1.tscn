@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Roof.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/BG.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/HelpText.tscn" type="PackedScene" id=7]
 
 [node name="Level1Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,4 +24,33 @@ white = true
 
 [node name="BG" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, 23.9873 )
+
+[node name="HelpText2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 160, 320 )
+
+[node name="Text" parent="HelpText2" index="0"]
+text = "These texts are here to help you, as it can
+be hard to find what to do.
+Press 'H' to toggle them on/off."
+
+[node name="HelpText" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+position = Vector2( 54.9265, 185.425 )
+
+[node name="Text" parent="HelpText" index="0"]
+text = "Welcome in the Lever ! Your goal is to fulfill
+some actions, and then pull the lever."
+
+[node name="HelpText3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 66.5577, 463.282 )
+
+[node name="Text" parent="HelpText3" index="0"]
+text = "Click on items to pick them / create interactions
+Have fun !"
 [connection signal="clicked" from="Lever" to="." method="_on_Lever_clicked"]
+
+[editable path="HelpText2"]
+
+[editable path="HelpText"]
+
+[editable path="HelpText3"]

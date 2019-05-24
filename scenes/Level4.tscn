@@ -12,6 +12,10 @@
 [node name="Level1Root" parent="Level3Root/Level2Root" index="0"]
 script = ExtResource( 2 )
 
+[node name="Text" parent="Level3Root/Level2Root/Level1Root/HelpText" index="0"]
+text = "Just make the two platforms touch each other !
+We...really didn't think this through, tbh."
+
 [node name="Path2D" parent="Level3Root/Level2Root/Level1Root/Platform2" index="0"]
 can_fall = true
 
@@ -19,12 +23,6 @@ can_fall = true
 visible = false
 
 [node name="KinematicBody2D" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
-editor/display_folded = false
-
-[node name="AnimatedSprite" parent="Level3Root/Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 0
-
-[node name="Hole" parent="Level3Root/Level2Root/Level1Root" index="11"]
 editor/display_folded = false
 
 [node name="Plant" parent="Level3Root/Level2Root/Level1Root" index="12"]
@@ -37,11 +35,16 @@ texture = ExtResource( 3 )
 [node name="PotAuFeu" parent="Level3Root/Level2Root/Level1Root" index="16" instance=ExtResource( 4 )]
 position = Vector2( 660.455, 637.425 )
 
+[node name="Hole" parent="Level3Root/Level2Root/Level1Root" index="17"]
+editor/display_folded = false
+
 [editable path="Level3Root"]
 
 [editable path="Level3Root/Level2Root"]
 
 [editable path="Level3Root/Level2Root/Level1Root"]
+
+[editable path="Level3Root/Level2Root/Level1Root/HelpText"]
 
 [editable path="Level3Root/Level2Root/Level1Root/Platform2"]
 

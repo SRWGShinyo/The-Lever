@@ -20,9 +20,12 @@ extents = Vector2( 17.006, 12.3409 )
 [node name="Level1Root" parent="Level2Root" index="0"]
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="Level2Root/Level1Root/Rails/Rail2/CanvasLayer" index="0"]
-position = Vector2( 330, 299.783 )
-region_rect = Rect2( -20.25, 0, 8.14, 181.23 )
+[node name="Text" parent="Level2Root/Level1Root/HelpText" index="0"]
+text = "The plant is growing ! Maybe it could need some
+help..."
+
+[node name="Text" parent="Level2Root/Level1Root/HelpText3" index="0"]
+text = ""
 
 [node name="Platform2" parent="Level2Root/Level1Root" index="8" instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -48,20 +51,12 @@ editor/display_folded = true
 [node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
 editor/display_folded = true
 
-[node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
-curve = ExtResource( 4 )
-
-[node name="PathFollow2D" parent="Level2Root/Level1Root/Platform/Path2D" index="0"]
-position = Vector2( 3.0652, 0.21701 )
-
-[node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
-editor/display_folded = true
-
-[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
 frame = 0
 
-[node name="Hole" parent="Level2Root/Level1Root" index="11"]
-visible = false
+[node name="Sprite" parent="Level2Root/Level1Root/Rails/Rail2/CanvasLayer" index="0"]
+position = Vector2( 330, 299.783 )
+region_rect = Rect2( -20.25, 0, 8.14, 181.23 )
 
 [node name="Plant" parent="Level2Root/Level1Root" index="12" instance=ExtResource( 6 )]
 editor/display_folded = true
@@ -78,15 +73,30 @@ texture = ExtResource( 8 )
 position = Vector2( 0, 5.27045 )
 shape = SubResource( 1 )
 
-[node name="Seed" parent="Level2Root/Level1Root" index="13"]
+[node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
+curve = ExtResource( 4 )
+
+[node name="PathFollow2D" parent="Level2Root/Level1Root/Platform/Path2D" index="0"]
+position = Vector2( 3.0652, 0.21701 )
+
+[node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D" index="0"]
 editor/display_folded = true
-visible = false
+
+[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 1
 
 [node name="PotPeinture" parent="Level2Root/Level1Root" index="15" instance=ExtResource( 9 )]
 position = Vector2( 30, 636.352 )
 scale = Vector2( -1, 1 )
 
-[node name="Bone" parent="Level2Root/Level1Root" index="16"]
+[node name="Hole" parent="Level2Root/Level1Root" index="16"]
+visible = false
+
+[node name="Seed" parent="Level2Root/Level1Root" index="17"]
+editor/display_folded = true
+visible = false
+
+[node name="Bone" parent="Level2Root/Level1Root" index="19"]
 visible = false
 [connection signal="clicked" from="Level2Root/Level1Root/Plant/ClickableArea" to="Level2Root/Level1Root/Plant" method="_on_plant_clicked"]
 
@@ -94,7 +104,9 @@ visible = false
 
 [editable path="Level2Root/Level1Root"]
 
-[editable path="Level2Root/Level1Root/Rails/Rail2"]
+[editable path="Level2Root/Level1Root/HelpText"]
+
+[editable path="Level2Root/Level1Root/HelpText3"]
 
 [editable path="Level2Root/Level1Root/Platform2"]
 
@@ -102,8 +114,10 @@ visible = false
 
 [editable path="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/WaterBucket/ClickableRoot"]
 
-[editable path="Level2Root/Level1Root/Platform"]
+[editable path="Level2Root/Level1Root/Rails/Rail2"]
 
 [editable path="Level2Root/Level1Root/Plant"]
+
+[editable path="Level2Root/Level1Root/Platform"]
 
 [editable path="Level2Root/Level1Root/PotPeinture"]

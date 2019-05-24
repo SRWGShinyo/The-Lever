@@ -14,9 +14,16 @@ var displayRed = false
 var numberPotFilled = 0
 var commandPickUp = true
 
+var easymode = true
+
 var keep_dog := false
 var keep_paint := false
 var keep_food := false
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_H:
+			easymode = !easymode
 
 func displayProperPanel(lvl):
 	if lvl == "1":

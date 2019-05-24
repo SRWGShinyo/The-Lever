@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Level2.gd" type="Script" id=2]
@@ -15,8 +15,6 @@
 [ext_resource path="res://Objects/BasicPlatformL2.gd" type="Script" id=13]
 [ext_resource path="res://Objects/Bone.gd" type="Script" id=14]
 [ext_resource path="res://resources/sprites/os.png" type="Texture" id=15]
-[ext_resource path="res://resources/sprites/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://scenes/Label.gd" type="Script" id=17]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -26,19 +24,30 @@ _data = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 18.0477, 6.37604 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16.1007, 7.41296 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 19
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 16 )
 
 [node name="Level2Root" type="Node2D"]
 
 [node name="Level1Root" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="HelpText2" parent="Level1Root" index="5"]
+editor/display_folded = true
+
+[node name="Text" parent="Level1Root/HelpText2" index="0"]
+text = ""
+
+[node name="HelpText" parent="Level1Root" index="6"]
+editor/display_folded = false
+position = Vector2( 50, 100 )
+
+[node name="Text" parent="Level1Root/HelpText" index="0"]
+text = "A bag of seeds ! 
+You only need to find somewhere to plant them..."
+
+[node name="Text" parent="Level1Root/HelpText3" index="0"]
+text = "This dog seems to be waiting for something..."
 
 [node name="Rails" type="Node2D" parent="Level1Root"]
 editor/display_folded = true
@@ -70,6 +79,9 @@ position = Vector2( 56.9348, 299.783 )
 
 [node name="Path2D" parent="Level1Root/Platform" index="0"]
 curve = SubResource( 1 )
+
+[node name="AnimatedSprite" parent="Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+frame = 0
 
 [node name="Dog" parent="Level1Root" instance=ExtResource( 7 )]
 editor/display_folded = true
@@ -107,16 +119,7 @@ texture = ExtResource( 15 )
 
 [node name="CollisionShape2D" parent="Level1Root/Bone/ClickableArea" index="1"]
 position = Vector2( 0, 8.69623 )
-shape = SubResource( 4 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 275.083
-margin_top = 135.339
-margin_right = 653.083
-margin_bottom = 164.339
-custom_fonts/font = SubResource( 5 )
-text = "What could this dog be doing here..."
-script = ExtResource( 17 )
+shape = SubResource( 3 )
 [connection signal="animation_finished" from="Level1Root/Hole" to="Level1Root/Hole" method="_on_Hole_animation_finished" flags=6]
 [connection signal="clicked" from="Level1Root/Hole/ClickableRoot/ClickableArea" to="Level1Root/Hole" method="_on_ClickableArea_clicked"]
 [connection signal="clicked" from="Level1Root/Bone/ClickableArea" to="Level1Root/Bone" method="_on_ClickableArea_clicked"]
@@ -124,6 +127,12 @@ script = ExtResource( 17 )
 [editable path="Level1Root"]
 
 [editable path="Level1Root/BG"]
+
+[editable path="Level1Root/HelpText2"]
+
+[editable path="Level1Root/HelpText"]
+
+[editable path="Level1Root/HelpText3"]
 
 [editable path="Level1Root/Rails/Rail"]
 

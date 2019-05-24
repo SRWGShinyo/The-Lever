@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/FilterHandler.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/RemoteGlobalDown.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Objects/BG.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/RoofW2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/HelpText.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401.437, 28.5482 )
@@ -72,6 +73,12 @@ shape = SubResource( 1 )
 "Green",
 ] instance=ExtResource( 10 )]
 position = Vector2( 475.135, 632.163 )
+
+[node name="HelpText" parent="." index="9" instance=ExtResource( 11 )]
+position = Vector2( 77.3802, 177.932 )
+
+[node name="Text" parent="HelpText" index="0"]
+text = "No lever ?! And...what about this command ?"
 [connection signal="clicked" from="WholeLevel/LeverRoot" to="WholeLevel" method="_on_LeverRoot_clicked"]
 
 [editable path="BlackFilter"]
@@ -83,3 +90,5 @@ position = Vector2( 475.135, 632.163 )
 [editable path="GreenButton"]
 
 [editable path="WholeLevel/LeverRoot"]
+
+[editable path="HelpText"]
