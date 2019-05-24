@@ -54,7 +54,6 @@ position = Vector2( 640, 500 )
 [node name="Plateformwine2" parent="." index="13" groups=[
 "Green",
 ] instance=ExtResource( 2 )]
-editor/display_folded = true
 position = Vector2( 583.873, 508.747 )
 
 [node name="LeafPlatform4" parent="." index="14" groups=[

@@ -48,9 +48,6 @@ editor/display_folded = true
 [node name="KinematicBody2D" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D" index="1"]
 editor/display_folded = true
 
-[node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform2/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 2
-
 [node name="Path2D" parent="Level2Root/Level1Root/Platform" index="0"]
 curve = ExtResource( 4 )
 
@@ -61,7 +58,7 @@ position = Vector2( 3.0652, 0.21701 )
 editor/display_folded = true
 
 [node name="AnimatedSprite" parent="Level2Root/Level1Root/Platform/Path2D/PathFollow2D/KinematicBody2D" index="1"]
-frame = 1
+frame = 0
 
 [node name="Hole" parent="Level2Root/Level1Root" index="11"]
 visible = false
@@ -85,12 +82,12 @@ shape = SubResource( 1 )
 editor/display_folded = true
 visible = false
 
-[node name="Bone" parent="Level2Root/Level1Root" index="14"]
-visible = false
-
 [node name="PotPeinture" parent="Level2Root/Level1Root" index="15" instance=ExtResource( 9 )]
 position = Vector2( 30, 636.352 )
 scale = Vector2( -1, 1 )
+
+[node name="Bone" parent="Level2Root/Level1Root" index="16"]
+visible = false
 [connection signal="clicked" from="Level2Root/Level1Root/Plant/ClickableArea" to="Level2Root/Level1Root/Plant" method="_on_plant_clicked"]
 
 [editable path="Level2Root"]
