@@ -10,7 +10,7 @@
 [ext_resource path="res://Objects/Seau.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Switch.tscn" type="PackedScene" id=9]
 
-[node name="FilterHandler" index="0" instance=ExtResource( 1 )]
+[node name="FilterHandler" instance=ExtResource( 1 )]
 
 [node name="RemoteGlobalDown" parent="." index="0"]
 script = null
@@ -54,6 +54,7 @@ position = Vector2( 640, 500 )
 [node name="Plateformwine2" parent="." index="13" groups=[
 "Green",
 ] instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( 583.873, 508.747 )
 
 [node name="LeafPlatform4" parent="." index="14" groups=[
