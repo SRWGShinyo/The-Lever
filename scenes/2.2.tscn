@@ -10,7 +10,7 @@
 [ext_resource path="res://Objects/Seau.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Switch.tscn" type="PackedScene" id=9]
 
-[node name="FilterHandler" instance=ExtResource( 1 )]
+[node name="FilterHandler" index="0" instance=ExtResource( 1 )]
 
 [node name="RemoteGlobalDown" parent="." index="0"]
 script = null
@@ -36,6 +36,7 @@ position = Vector2( 154.707, 583.181 )
 [node name="LeafPlatform3" parent="." index="11" groups=[
 "Green",
 ] instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 250, 500 )
 
 [node name="Leaf" parent="LeafPlatform3" index="0"]
@@ -71,6 +72,9 @@ visible = false
 
 [node name="Telecommande" parent="WholeLevel" index="3"]
 visible = false
+
+[node name="BG" parent="WholeLevel" index="4"]
+position = Vector2( 0, -1.29236 )
 
 [node name="WaterFountain" parent="WholeLevel/BG" index="3" groups=[
 "Blue",
@@ -119,6 +123,10 @@ visible = false
 [editable path="Plateformwine3"]
 
 [editable path="LeafPlatform3"]
+
+[editable path="Plateformwine2"]
+
+[editable path="Plateformwine2/Wine/LeafPlatform"]
 
 [editable path="WholeLevel/BG/Switch"]
 
